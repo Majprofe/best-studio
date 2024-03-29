@@ -1,0 +1,26 @@
+---
+import Section from './Section.astro'
+---
+<Section
+  title="King of Gyms"
+  subtitle="Reserva un clase de prueba hoy mismo"
+  color="white"
+  id="home"
+>
+  <div slot="footer">
+    <a
+      class="border-[3px] border-white bg-white/5 backdrop-blur-sm text-sm rounded font-medium text-white px-12 py-2 inline-block hover:bg-white hover:text-black transition-colors"
+      href="#"
+    >
+    Reserva una clase</a
+    >
+  </div>
+
+  <video
+    slot="background"
+    class="object-center object-cover h-full w-full"
+    autoplay
+    muted
+    loop
+    src="/crossfit-2.mp4"></video>
+</Section>
