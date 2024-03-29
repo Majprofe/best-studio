@@ -1,90 +1,32 @@
 ---
+import LandingHeader from "../components/LandingHeader.astro";
 import Layout from "../layouts/Layout.astro";
+import HeroSection from "../components/HeroSection.astro";
+import GymSection from "../components/GymSection.astro";
+import PowerliftingSection from "../components/PowerliftingSection.astro";
+import SweatSection from "../components/SweatSection.astro";
+import PilatesSection from "../components/PilatesSection.astro";
 ---
 
 <Layout title="Best Studio">
-	<main>
-		<header
-			class="py-3 px-10 flex items-center fixed top-0 w-full justify-between z-40 text-white"
-		>
-			<div class="flex flex-grow basis-0">
-				<svg
-					class="h-6 w-32"
-					xmlns="http://www.w3.org/2000/svg"
-					xmlns:xlink="http://www.w3.org/1999/xlink"
-					viewBox="0 0 150 150"
-					><g id="Capa_2" data-name="Capa 2"
-						><g id="Capa_1-2" data-name="Capa 1"
-							><image
-								width="150"
-								height="150"
-								xlink:href="data:image/jpeg;base64,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"
-							/></g
-						></g
-					></svg
-				>
-				<!-- <img src="/besstudiologo.jpg" alt="Logo"> -->
-			</div>
+	<LandingHeader />
 
-			<nav>
-				<ul
-					class="flex text-sm [&>li>a]:text-white [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 [&>li>a]:whitespace-nowrap"
-				>
-					<li><a href="#">Crossfit</a></li>
-					<li><a href="#">Gym</a></li>
-					<li><a href="#">Powerlifting</a></li>
-					<li><a href="#">Sweat</a></li>
-					<li><a href="#">Pilates</a></li>
-				</ul>
-			</nav>
-
-			<nav class="flex flex-grow justify-end basis-0">
-				<ul
-					class="flex text-sm [&>li>a]:text-white [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 [&>li>a]:whitespace-nowrap"
-				>
-					<li><a href="#">Best Studio</a></li>
-					<li><a href="#">Tarifas</a></li>
-					<li><a href="#">Horarios</a></li>
-					<li><a href="#">Contacto</a></li>
-				</ul>
-			</nav>
-		</header>
-
-		<section
-			class="bg-black h-screen w-screen text-center overflow-hidden relative"
-		>
-			<div class="z-30 relative h-full flex flex-col">
-				<header>
-					<h2 class="text-white pt-40 text-[40px] font-medium">
-						King of Gyms
-					</h2>
-					<p class="text-white text-sm">
-						Reserva un clase de prueba hoy mismo
-					</p>
-				</header>
-
-				<footer
-					class="flex flex-col flex-grow flex-nowrap justify-end pb-20"
-				>
-					<div>
-						<a
-							class="border-[3px] border-white bg-white/5 backdrop-blur-sm text-sm rounded font-medium
-							text-white px-12 py-2 inline-block hover:bg-white hover:text-black transition-colors"
-							href="#">Reserva una clase</a
-						>
-					</div>
-				</footer>
-			</div>
-
-			<div class="absolute top-0 bottom-0 h-full w-full z-10">
-				<video
-					autoplay
-					muted
-					loop
-					src="/crossfit-2.mp4"
-					class="object-cover w-full h-full"></video>
-			</div>
-		</section>
+	<main class="snap-y snap-mandatory relative w-full h-screen overflow-y-auto overflow-x-hidden scroll-smooth">
+		<div class="snap-center">
+			<HeroSection />
+		</div>
+		<div class="snap-center">
+			<GymSection />
+		</div>
+		<div class="snap-center">
+			<PowerliftingSection />
+		</div>
+		<div class="snap-center">
+			<SweatSection />
+		</div>
+		<div class="snap-center">
+			<PilatesSection />
+		</div>
 	</main>
 </Layout>
 
