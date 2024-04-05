@@ -1,19 +1,19 @@
 ---
-import LandingHeader from "../components/LandingHeader.astro";
+import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
-import HeroSection from "../components/FuncionalSection.astro";
 import GymSection from "../components/GymSection.astro";
 import PowerliftingSection from "../components/PowerliftingSection.astro";
 import SweatSection from "../components/SweatSection.astro";
 import PilatesSection from "../components/PilatesSection.astro";
+import Landing from "../components/Landing.astro";
 ---
 
 <Layout title="Best Studio">
-	<LandingHeader />
+	<Header class="h-12 w-full"/>
 
 	<main class="snap-y snap-mandatory relative w-full h-screen overflow-y-auto overflow-x-hidden scroll-smooth">
 		<div class="snap-center">
-			<HeroSection />
+			<Landing />
 		</div>
 		<div class="snap-center">
 			<GymSection />
