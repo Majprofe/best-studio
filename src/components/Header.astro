@@ -14,9 +14,34 @@ import Logo from "./Logo.astro";
         <ul
             class="flex text-sm [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
         >
-            <li class="hidden xl:block sm:hidden"><a href="#">EXPECTATIVAS</a></li>
-            <li class="hidden xl:block sm:hidden"><a href="#">INSTALACIONES</a></li>
-            <li class="hidden xl:block sm:hidden"><a href="#">SABER MÁS</a></li>
+            <li class="hidden xl:block sm:hidden">
+                <a href="#">EXPECTATIVAS</a>
+            </li>
+            <li class="hidden xl:block sm:hidden nav-item relative">
+                <a href="#">INSTALACIONES</a>
+                <!-- Submenu -->
+                <div
+                    class="submenu absolute mt-2 shadow-lg z-10 bg-gray-800 rounded-lg"
+                >
+                    <ul>
+                        <li><a href="#">GYM</a></li>
+                        <li><a href="#">BOX</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="hidden xl:block sm:hidden">
+                <a href="#">SABER MÁS</a>
+                <div
+                    class="submenu absolute mt-2 shadow-lg z-10 bg-gray-800 rounded-lg"
+                >
+                    <ul>
+                        <li><a href="#">CLASES</a></li>
+                        <li><a href="#">TARIFAS</a></li>
+                        <li><a href="#">HORARIO</a></li>
+
+                    </ul>
+                </div>
+            </li>
             <li class="hidden xl:block sm:hidden"><a href="#">CONTACTO</a></li>
             <!-- <li><a id="menu-btn" href="#">Menú</a></li> -->
         </ul>
@@ -114,7 +139,7 @@ import Logo from "./Logo.astro";
     <div
         id="menu-backdrop"
         class={`
-            absolute bg-black/5 backdrop-blur-lg rounded
+            absolute bg-gray-600 backdrop-blur-lg rounded
             translate-x-[var(--left)] translate-y-[var(--top)]
             left-0 top-0
             w-[var(--width)] h-[var(--height)]
@@ -192,3 +217,39 @@ import Logo from "./Logo.astro";
     const sectionElements = document.querySelectorAll(".landing-section");
     sectionElements.forEach((section) => observer.observe(section));
 </script>
+
+<style>
+    /* Estilos específicos para el submenu */
+    .submenu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        box-shadow: 0.5rem 0.5rem 2rem 4rem rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+            opacity 0.3s ease,
+            visibility 0.3s ease;
+        width: 100%; /* Ocupar todo el ancho del padre */
+        text-align: center;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .submenu:hover {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .submenu ul li:not(:last-child) {
+        margin-bottom: 1rem; /* Agregar margen inferior a todos los elementos menos al último */
+    }
+
+    .nav-item:hover .submenu {
+        opacity: 1;
+        visibility: visible;
+    }
+</style>
