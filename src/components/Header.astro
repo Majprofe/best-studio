@@ -21,24 +21,26 @@ import Logo from "./Logo.astro";
                 <a href="#">INSTALACIONES</a>
                 <!-- Submenu -->
                 <div
-                    class="submenu absolute mt-2 shadow-lg z-10 bg-gray-800 rounded-lg"
+                    class="submenu absolute"
                 >
-                    <ul>
+                    <ul
+                    >
                         <li><a href="#">GYM</a></li>
                         <li><a href="#">BOX</a></li>
                     </ul>
                 </div>
             </li>
-            <li class="hidden xl:block sm:hidden">
+            <li class="hidden xl:block sm:hidden nav-item relative">
                 <a href="#">SABER MÁS</a>
+                <!-- Submenu -->
                 <div
-                    class="submenu absolute mt-2 shadow-lg z-10 bg-gray-800 rounded-lg"
+                    class="submenu absolute"
                 >
-                    <ul>
+                    <ul
+                    >
                         <li><a href="#">CLASES</a></li>
                         <li><a href="#">TARIFAS</a></li>
                         <li><a href="#">HORARIO</a></li>
-
                     </ul>
                 </div>
             </li>
@@ -229,8 +231,8 @@ import Logo from "./Logo.astro";
         opacity: 0;
         visibility: hidden;
         transition:
-            opacity 0.3s ease,
-            visibility 0.3s ease;
+        opacity 0.3s ease,
+        visibility 0.3s ease;
         width: 100%; /* Ocupar todo el ancho del padre */
         text-align: center;
         padding-top: 0.5rem;
