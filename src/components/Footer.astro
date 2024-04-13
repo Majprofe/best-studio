@@ -1,0 +1,30 @@
+---
+import Instagram from "./Instagram.astro";
+---
+
+<section
+    class="bg-black h-screen w-screen text-center overflow-hidden relative"
+>
+    <div class="z-30 relative h-full flex flex-col">
+        <header>
+            <h2 class="text-white pt-40 text-2xl font-medium">EXPECTATIVAS</h2>
+        </header>
+
+        <div>
+            <p class="text-white text-l">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        </div>
+        <footer class="border-t border-stroke flex flex-col flex-grow flex-nowrap justify-end">
+            <div class="flex flex-col flex-wrap items-center justify-center gap-5 border-t border-stroke py-7 dark:border-strokedark lg:flex-row lg:justify-between lg:gap-0">
+                <nav>
+                    <ul class="flex justify-between items-center [&>li>a]:text-white [&>li>a]:inline-block [&>li>a]:px-2 [&>li>a]:py-2">
+                        <li><a href="#"><Instagram/></a></li>
+                        <li><a href="#">Best Studio © 2023</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Localización de tiendas</a></li>
+                    </ul>
+                </nav>            
+            </div>
+        </footer>
+    </div>
+
+</section>
