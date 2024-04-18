@@ -1,34 +1,79 @@
 <section class="flex flex-col items-center justify-center bg-black">
-  <header class="relative">
-    <h2 class="text-white pt-14 text-2xl font-medium text-center sm:pt-20 sm:text-4xl animate-typewriter">
+  <header class="mt-16 sm:mt-20">
+    <h2
+      class="text-white w-auto text-xl font-medium text-center sm:text-4xl"
+    >
       ¿Es Best Studio un centro para ti?
     </h2>
   </header>
-  
-  
-  
-  <div class="flex flex-col items-center justify-center w-full h-screen mt-4 mb-4 sm:flex-row sm:justify-around">
-      <video
-        controls
-        crossorigin="anonymous"
-        playsinline
-        autoplay
-        muted
-        class="w-1/2 h-full sm:h-screen sm:w-auto"
-      >
-        <source src="./reel1.mp4" type="video/mp4">
-      </video>
-      <video
-        controls
-        crossorigin="anonymous"
-        playsinline
-        autoplay
-        muted
-        class="w-1/2 h-full mt-2 sm:h-screen sm:w-auto sm:mt-0"
-      >
-        <source src="./reel1.mp4" type="video/mp4">
-      </video>
+
+  <div
+    class="flex flex-col items-center justify-center w-full h-screen mt-2 mb-2 sm:flex-row sm:justify-around"
+  >
+    <video
+      controls
+      crossorigin="anonymous"
+      playsinline
+      autoplay
+      muted
+      class="w-1/2 h-full sm:h-screen sm:w-auto"
+    >
+      <source src="./reel1.mp4" type="video/mp4" />
+    </video>
+    <video
+      controls
+      crossorigin="anonymous"
+      playsinline
+      autoplay
+      muted
+      class="w-1/2 h-full mt-2 sm:h-screen sm:w-auto sm:mt-0"
+    >
+      <source src="./reel1.mp4" type="video/mp4" />
+    </video>
   </div>
 </section>
 
+<style>
+  /* Estilos adicionales para la animación */
+  .fadeIn {
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
+  /* Estilos para la animación letra por letra */
+  .fadeIn:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+  .fadeIn:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+  .fadeIn:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+  /* Continuar con las pseudoclases para cada letra */
+
+  /* Opcional: Estilos para otro efecto más llamativo */
+  /* Ejemplo: transformación */
+  .fadeIn-transform {
+    opacity: 0;
+    animation: fadeInTransform 2s forwards;
+  }
+  @keyframes fadeInTransform {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

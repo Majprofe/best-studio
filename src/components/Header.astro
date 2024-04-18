@@ -6,25 +6,25 @@ import Logo from "./Logo.astro";
     id="landing-header"
     class="py-3 px-10 flex items-center fixed top-0 w-full justify-between z-40 text-white"
 >
-    <div class="flex flex-grow basis-0">
-        <Logo />
-    </div>
+    <a href="/">
+        <!-- Enlace al inicio de la página -->
+        <div class="flex flex-grow basis-0">
+            <Logo />
+        </div>
+    </a>
 
     <nav class="flex flex-grow justify-end basis-0">
         <ul
             class="flex text-sm [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
         >
             <li class="hidden xl:block sm:hidden">
-                <a href="#">EXPECTATIVAS</a>
+                <a href="#expectations">EXPECTATIVAS</a>
             </li>
             <li class="hidden xl:block sm:hidden nav-item relative">
                 <a href="#">INSTALACIONES</a>
                 <!-- Submenu -->
-                <div
-                    class="submenu absolute"
-                >
-                    <ul
-                    >
+                <div class="submenu absolute">
+                    <ul>
                         <li><a href="#">GYM</a></li>
                         <li><a href="#">BOX</a></li>
                     </ul>
@@ -33,11 +33,8 @@ import Logo from "./Logo.astro";
             <li class="hidden xl:block sm:hidden nav-item relative">
                 <a href="#">SABER MÁS</a>
                 <!-- Submenu -->
-                <div
-                    class="submenu absolute"
-                >
-                    <ul
-                    >
+                <div class="submenu absolute">
+                    <ul>
                         <li><a href="#">CLASES</a></li>
                         <li><a href="#">TARIFAS</a></li>
                         <li><a href="#">HORARIO</a></li>
@@ -231,8 +228,8 @@ import Logo from "./Logo.astro";
         opacity: 0;
         visibility: hidden;
         transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease;
+            opacity 0.3s ease,
+            visibility 0.3s ease;
         width: 100%; /* Ocupar todo el ancho del padre */
         text-align: center;
         padding-top: 0.5rem;
