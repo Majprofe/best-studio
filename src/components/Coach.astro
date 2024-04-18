@@ -1,41 +1,37 @@
-<section class="bg-black h-screen w-screen text-center overflow-hidden relative mt-30">
-  <header>
-    <h2 class="text-white pt-24 text-2xl font-medium">
+<section class="flex flex-col items-center justify-center bg-black">
+  <header class="relative">
+    <h2 class="text-white pt-14 text-2xl font-medium text-center sm:pt-20 sm:text-4xl opacity-0 transition-opacity duration-1000 delay-200 transform -translate-x-full sm:translate-x-0">
       ¿Es Best Studio un centro para ti?
     </h2>
   </header>
-  <div class="flex flex-wrap justify-center items-stretch md:items-center">
-    <div class="container p-5 m-10">
+  
+  
+  
+  <div class="flex flex-col items-center justify-center w-full h-screen mt-4 mb-4 sm:flex-row sm:justify-around">
       <video
         controls
         crossorigin="anonymous"
         playsinline
         autoplay
         muted
-        class="w-full h-auto max-w-xs max-h-xl"
+        class="w-1/2 h-full sm:h-screen sm:w-auto"
       >
         <source src="./reel1.mp4" type="video/mp4">
       </video>
-    </div>
-    <div class="container p-5 m-10">
       <video
         controls
         crossorigin="anonymous"
         playsinline
         autoplay
         muted
-        class="w-full h-auto max-w-xs max-h-xl"
+        class="w-1/2 h-full mt-2 sm:h-screen sm:w-auto sm:mt-0"
       >
         <source src="./reel1.mp4" type="video/mp4">
       </video>
-    </div>
   </div>
 </section>
 
 
 <style>
-.container {
-  max-width: 25%;
-}
 
 </style>
