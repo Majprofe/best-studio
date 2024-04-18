@@ -3,35 +3,61 @@
 >
     <div class="z-30 relative h-full flex flex-col">
         <header>
-            <h2 class="text-white pt-40 text-8xl font-medium">KING OF GYMS</h2>
-            <p class="text-white text-4xl">Crece entrenando, mejora tu vida</p>
+            <h2 id="main-heading" class="text-white pt-40 text-8xl font-medium opacity-0 transition-opacity duration-1000 delay-10000">KING OF GYMS</h2>
+            <p id="sub-heading" class="text-white text-4xl opacity-0 transition-opacity duration-1000 delay-10000">Crece entrenando, mejora tu vida</p>
         </header>
 
         <footer class="flex flex-col flex-grow flex-nowrap justify-end pb-20">
             <div>
                 <a
-                class="border-[3px] border-white bg-white/5 backdrop-blur-sm text-sm rounded font-medium text-white px-12 py-2 inline-block hover:bg-white hover:text-black transition-colors"
-                href="#"
-              >
-              CONTACTA AHORA</a
-              >
+                    class="border-[3px] border-white bg-white/5 backdrop-blur-sm text-sm rounded font-medium text-white px-12 py-2 inline-block hover:bg-white hover:text-black transition-colors"
+                    href="#"
+                >
+                    CONTACTA AHORA</a
+                >
             </div>
         </footer>
     </div>
 
-    <div class="absolute top-0 bottom-0 pt-20 w-full z-10">
-<!--         <img
-            src="/fotoprincipal.jpg"
-            alt="Imagen Gym"
-            class="h-full w-full object-cover object-center"
-        /> -->
-        <video
-        slot=""
-        class="object-center object-cover h-full w-full"
-        autoplay
-        muted
-        loop
-        src="/crossfit-2.mp4"></video>
 
+    <div class="absolute top-0 bottom-0 w-full z-10">
+        <video id="bg-video" class="object-center object-cover h-full w-full" autoplay muted loop>
+            <!-- Fuentes de video -->
+        </video>
     </div>
 </section>
+
+<script>
+    const videoElement = document.getElementById('bg-video') as HTMLVideoElement;
+
+    function setVideoSource() {
+        if (window.innerWidth >= 1000) {
+            // Fuente de video para pantallas medianas y grandes
+            videoElement.src = '/crossfit-2.mp4';
+        } else {
+            // Fuente de video para pantallas pequeñas
+            videoElement.src = '/reel1.mp4';
+        }
+
+        // Reiniciar el video
+        videoElement.load();
+    }
+
+    // Llamar a la función al cargar la página
+    setVideoSource();
+
+    // Llamar a la función cuando se redimensione la ventana
+    window.addEventListener('resize', setVideoSource);
+</script>
+
+<script>
+    setTimeout(() => {
+        const mainHeading = document.getElementById('main-heading');
+        const subHeading = document.getElementById('sub-heading');
+
+        if (mainHeading && subHeading) {
+            mainHeading.classList.remove('opacity-0');
+            subHeading.classList.remove('opacity-0');
+        }
+    }, 10000);
+</script>
