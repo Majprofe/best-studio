@@ -1,14 +1,14 @@
-<section class="flex flex-col items-center justify-center bg-black min-h-screen ">
-  <header class="mt-16">
+<section class="flex flex-col items-center bg-black min-h-dvh ">
+  <header class="mt-20">
     <h2
-      class="text-white w-auto text-xl font-medium text-center sm:text-4xl"
+      class="text-white w-auto text-xl font-medium text-center relative sm:text-4xl animate-customPulse"
     >
       ¿Es Best Studio un centro para ti?
     </h2>
   </header>
 
   <div
-    class="flex flex-col items-center justify-center w-full h-full mt-2 mb-2 md:flex-row md:justify-around"
+    class="flex flex-col items-center justify-start w-full h-dvh xl:flex-row xl:justify-around"
   >
     <video
       controls
@@ -16,7 +16,7 @@
       playsinline
       autoplay
       muted
-      class="w-1/2 md:w-1/3 h-auto md:max-h-96"
+      class="w-1/2 md:w-1/3 h-full max-h-half-dvh"
     >
       <source src="./reel1.mp4" type="video/mp4" />
     </video>
@@ -26,10 +26,22 @@
       playsinline
       autoplay
       muted
-      class="w-1/2 md:w-1/3 h-auto mt-2 md:mt-0"
+      class="w-1/2 md:w-1/3 h-full mt-2 xl:mt-0"
     >
       <source src="./reel1.mp4" type="video/mp4" />
     </video>
   </div>
 </section>
 
+<style>
+  @keyframes customPulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.animate-customPulse {
+  animation: customPulse 5s ease-in-out infinite;
+}
+
+</style>

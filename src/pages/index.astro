@@ -3,21 +3,21 @@ import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
 import Landing from "../components/Landing.astro";
 import Coach from "../components/Coach.astro";
-import Footer2 from "../components/Expectations.astro";
+import Expectations from "../components/Expectations.astro";
 ---
 
 <Layout title="Best Studio">
 	<Header class="h-12 w-full"/>
 
 	<main class="snap-y snap-mandatory relative w-full h-screen overflow-y-auto overflow-x-hidden scroll-smooth">
-<!-- 		<div class="snap-center">
-			<Landing />
-		</div> -->
 		<div class="snap-center">
+			<Landing />
+		</div>
+		<div class="snap-start">
 			<Coach />
 		</div>
  		<div class="snap-center">
-			<Footer2 />
+			<Expectations />
 		</div>
 
 	</main>
