@@ -7,20 +7,15 @@ import Expectations from "../components/Expectations.astro";
 ---
 
 <Layout title="Best Studio">
-	<Header class="h-12 w-full"/>
-
-	<main class="snap-y snap-mandatory relative w-full h-screen overflow-y-auto overflow-x-hidden scroll-smooth">
-		<div class="snap-center">
-			<Landing />
-		</div>
-		<div class="snap-start">
-			<Coach />
-		</div>
- 		<div class="snap-center">
-			<Expectations />
-		</div>
-
-	</main>
+	<div class="snap-center">
+		<Landing />
+	</div>
+	<div class="snap-start">
+		<Coach />
+	</div>
+	<div class="snap-center">
+		<Expectations />
+	</div>
 </Layout>
 
 <style></style>
