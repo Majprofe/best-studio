@@ -5,7 +5,6 @@ interface Props {
 
 const { title } = Astro.props;
 import Header from "../components/Header.astro";
-import HeaderResponsive from "../components/HeaderResponsive.astro";
 ---
 
 <!doctype html>
@@ -19,7 +18,7 @@ import HeaderResponsive from "../components/HeaderResponsive.astro";
     <title>{title}</title>
   </head>
   <body class="bg-black">
-    <HeaderResponsive class="h-12 w-full" />
+    <Header class="h-12 w-full" />
     <main
       class="snap-y snap-mandatory relative w-full h-screen overflow-y-auto overflow-x-hidden scroll-smooth"
     >

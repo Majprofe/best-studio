@@ -6,7 +6,7 @@ import Logo from "./Logo.astro";
     id="landing-header"
     class="py-3 px-10 flex items-center fixed top-0 w-full justify-between z-40 text-white"
 >
-    <a href="/">
+    <a href="./">
         <!-- Enlace al inicio de la página -->
         <div class="flex flex-grow basis-0">
             <Logo />
@@ -35,105 +35,38 @@ import Logo from "./Logo.astro";
                 <!-- Submenu -->
                 <div class="submenu absolute">
                     <ul>
-                        <li><a href="#">CLASES</a></li>
-                        <li><a href="#">TARIFAS</a></li>
-                        <li><a href="#">HORARIO</a></li>
+                        <li><a href="/about#clases">CLASES</a></li>
+                        <li><a href="/about#tarifas">TARIFAS</a></li>
+                        <li><a href="/about#horario">HORARIO</a></li>
                     </ul>
                 </div>
             </li>
             <li class="hidden xl:block sm:hidden"><a href="#">CONTACTO</a></li>
-            <!-- <li><a id="menu-btn" href="#">Menú</a></li> -->
+            <li><a id="menu-btn" href="#">
+                <button class="xl:hidden">
+                    <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+                      <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>
+                    </svg>
+                </button>
+            </a></li>
         </ul>
     </nav>
 
-    <nav
-        id="modal-menu"
-        class="hidden xl:hidden flex flex-col bg-white fixed top-0 left-0 right-0 bottom-0"
-    >
+
+    <nav id="modal-menu" class="hidden xl:hidden flex flex-col bg-white fixed top-0 left-0 right-0 bottom-0 ">
         <button id="close-btn" class="w-screen flex justify-end p-5">
-            <img
-                class="text-black h-6"
-                src="/close-icon.svg"
-                alt="close image"
-            />
+          <img  class="text-black h-6 " src="/close-icon.svg" alt="close image">
         </button>
-        <ul
-            class="flex flex-col mt-4 [&>li>a]:transition-colors [&>li]:m-3 [&>li>a]:flex [&>li>a]:justify-between [&>li>a]:duration-200 [&>li>a]:text-black [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-6 [&>li>a]:py-3 [&>li>a]:rounded-md [&>li>a]:w-full"
-        >
-            <li>
-                <a class="hover:bg-slate-100" href="#funcional">
-                    Home <img
-                        class="h-5"
-                        alt="arrow icon"
-                        src="/arrow-icon.svg"
-                    /></a
-                >
-            </li>
-            <li>
-                <a class="hover:bg-slate-100" href="#gym"
-                    >Gym<img
-                        class="h-5"
-                        alt="arrow icon"
-                        src="/arrow-icon.svg"
-                    /></a
-                >
-            </li>
-            <li>
-                <a class="hover:bg-slate-100" href="#powerlifting"
-                    >Powerlifting3<img
-                        class="h-5"
-                        alt="arrow icon"
-                        src="/arrow-icon.svg"
-                    /></a
-                >
-            </li>
-            <li>
-                <a class="hover:bg-slate-100" href="#sweat"
-                    >Sweat<img
-                        class="h-5"
-                        alt="arrow icon"
-                        src="/arrow-icon.svg"
-                    /></a
-                >
-            </li>
-            <li>
-                <a class="hover:bg-slate-100" href="#pilates"
-                    >Pilates<img
-                        class="h-5"
-                        alt="arrow icon"
-                        src="/arrow-icon.svg"
-                    /></a
-                >
-            </li>
-            <li>
-                <a class="hover:bg-slate-100" href="#tarifas"
-                    >Tarifas<img
-                        class="h-5"
-                        alt="arrow icon"
-                        src="/arrow-icon.svg"
-                    /></a
-                >
-            </li>
-            <li>
-                <a class="hover:bg-slate-100" href="#horarios"
-                    >Horarios<img
-                        class="h-5"
-                        alt="arrow icon"
-                        src="/arrow-icon.svg"
-                    /></a
-                >
-            </li>
-            <li>
-                <a class="hover:bg-slate-100" href="#contacto"
-                    >Contacto<img
-                        class="h-5"
-                        alt="arrow icon"
-                        src="/arrow-icon.svg"
-                    /></a
-                >
-            </li>
+          <ul
+          class="flex flex-col mt-4 [&>li>a]:transition-colors [&>li]:m-3  [&>li>a]:flex [&>li>a]:justify-between [&>li>a]:duration-200 [&>li>a]:text-black [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-6 [&>li>a]:py-3 [&>li>a]:rounded-md [&>li>a]:w-full"
+          >
+            <li><a class="hover:bg-slate-100" href="./"> INICIO <img class="h-5" alt="arrow icon" src="/arrow-icon.svg"></a> </li>
+            <li><a class="hover:bg-slate-100" href="#expectations">EXPECTATIVAS<img class="h-5" alt="arrow icon" src="/arrow-icon.svg"></a></li>
+            <li><a class="hover:bg-slate-100" href="#">INSTALACIONES<img class="h-5" alt="arrow icon" src="/arrow-icon.svg"></a></li>
+            <li><a class="hover:bg-slate-100" href="/about">SABER MÁS<img class="h-5" alt="arrow icon" src="/arrow-icon.svg"></a></li>
+            <li><a class="hover:bg-slate-100" href="#">CONTACTO<img class="h-5" alt="arrow icon" src="/arrow-icon.svg"></a></li>
         </ul>
-    </nav>
+      </nav>
 
     <div
         id="menu-backdrop"
@@ -150,7 +83,7 @@ import Logo from "./Logo.astro";
 </header>
 
 <script>
-    //const menuBtn = document.getElementById("menu-btn");
+    const menuBtn = document.getElementById("menu-btn");
     const modalMenu = document.querySelector("#modal-menu");
     const menuItems = modalMenu.querySelectorAll("li>a ");
     const closeBtn = document.querySelector("#close-btn");
@@ -159,7 +92,7 @@ import Logo from "./Logo.astro";
         modalMenu.classList.toggle("hidden");
     }
 
-    //menuBtn.addEventListener("click", toggleDropdownMenu);
+    menuBtn.addEventListener("click", toggleDropdownMenu);
 
     closeBtn.addEventListener("click", toggleDropdownMenu);
 
