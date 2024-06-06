@@ -1,23 +1,98 @@
-<section class="text-white flex flex-col justify-center items-center p-4">
-    <h1 class="pt-20 text-center text-4xl font-bold">CONTACTO</h1>
-    <h2 class="text-xs sm:text-base text-center">Escríbenos y pasa a formar parte de<br/><strong>THE KING OF GYMS</strong><h2/>
-</section>
+---
+---
 
-
-
-<section class="text-white flex flex-col justify-center items-center text-center p-10">
-    <article>
-        <h2 class="text-2xl font-bold">Contáctanos</h2>
-        <a href="mailto:info@beststudio.com" target="_blank" draggable="false" rel="noopener">info@beststudio.com</a>
-        <br>
-        <a href="tel:0034657710761">657 71 07 61</a>
-        <br>
-        <a href="https://api.whatsapp.com/send?phone=0034657710761">Whatsapp</a>
-    </article>
-    <article>
-        <h2 class="text-2xl font-bold">Dirección</h2>
-        <p>C/ Curtidores, nave 16, 23740</p> <h2>Andújar</h2>
-        
-    </article>
-
-</section>
+<style>
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 1s ease-out;
+    }
+  </style>
+  
+  <section class="text-white flex flex-col justify-center items-center p-4">
+      <h1 class="pt-20 text-center text-4xl font-bold">CONTACTO</h1>
+      <h2 class="text-xs sm:text-base text-center pt-6">
+          Escríbenos y pasa a formar parte de
+          <br/><strong>THE KING OF GYMS</strong>
+      </h2>
+  </section>
+  
+  <section class="text-black bg-white flex flex-col justify-center items-center p-10">
+      <article class="w-full max-w-md mb-8">
+          <h2 class="text-2xl font-bold">Contáctanos</h2>
+          <a href="mailto:info@beststudio.com" target="_blank" draggable="false" rel="noopener" class="block">info@beststudio.com</a>
+          <a href="tel:0034657710761" class="block">657 71 07 61</a>
+          <a href="https://api.whatsapp.com/send?phone=0034657710761" class="block mt-2">
+              <img src="/icons8-whatsapp.gif" alt="Gif whatsapp" class="inline-block w-12 h-12">
+          </a>
+      </article>
+      <article class="w-full max-w-md mb-8">
+          <h2 class="text-2xl font-bold">Dirección</h2>
+          <p>C/ Curtidores, nave 16, 23740</p>
+          <h2>Andújar</h2>
+          <a href="https://maps.app.goo.gl/N1u3ckTseNmeT1KP8" rel="noopener" target="_blank" class="text-orange-500 flex items-center mt-2">
+              <img src="/location.svg" alt="Icono localización" class="h-6 w-auto pr-2"> VER MAPA
+          </a>
+      </article>
+      <article class="w-full max-w-md mb-8">
+          <h3 class="text-2xl font-bold">Horarios</h3>
+          <p>L-V: 08:00h a 15:00h y 16:00h a 22:00</p>
+          <p>S: 11:00h a 13:00h</p>
+      </article>
+  </section>
+  
+  <section class="text-white flex flex-col justify-center items-center p-10 border-t border-gray-700">
+      <h2 class="text-2xl font-bold mb-4">Formulario de Contacto</h2>
+      <form action="https://formspree.io/f/{your-form-id}" method="POST" class="w-full max-w-md xl:max-w-lg">
+          <div class="mb-4">
+              <label for="name" class="block text-sm font-bold mb-2">Nombre</label>
+              <input type="text" id="name" name="name" class="w-full p-2 border border-gray-700 bg-black text-white rounded">
+          </div>
+          <div class="mb-4">
+              <label for="email" class="block text-sm font-bold mb-2">Email</label>
+              <input type="email" id="email" name="email" class="w-full p-2 border border-gray-700 bg-black text-white rounded">
+          </div>
+          <div class="mb-4">
+              <label for="subject" class="block text-sm font-bold mb-2">Asunto</label>
+              <input type="text" id="subject" name="subject" class="w-full p-2 border border-gray-700 bg-black text-white rounded">
+          </div>
+          <div class="mb-4">
+              <label for="message" class="block text-sm font-bold mb-2">Mensaje</label>
+              <textarea id="message" name="message" rows="4" class="w-full p-2 border border-gray-700 bg-black text-white rounded"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-white text-black py-2 rounded font-bold">Enviar</button>
+      </form>
+  </section>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('section');
+  
+      const observer = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate-fadeIn');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+        }
+      );
+  
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+    });
+  </script>
+  
