@@ -3,8 +3,8 @@
 >
     <div class="z-30 relative h-full flex flex-col">
         <header>
-            <h2 id="main-heading" class="text-white pt-40 text-8xl font-medium opacity-0 transition-opacity duration-1000 delay-10000">KING OF GYMS</h2>
-            <p id="sub-heading" class="text-white text-4xl opacity-0 transition-opacity duration-1000 delay-10000">Crece entrenando, mejora tu vida</p>
+            <h2 id="main-heading" class="text-white text-bold pt-40 text-8xl font-bold opacity-0 transition-opacity duration-1000 delay-2000">KING OF GYMS</h2>
+            <p id="sub-heading" class="text-white text-4xl opacity-0 transition-opacity duration-1000 delay-2000">Crece entrenando, mejora tu vida</p>
         </header>
 
         <footer class="flex flex-col flex-grow flex-nowrap justify-end pb-20">
@@ -31,13 +31,7 @@
     const videoElement = document.getElementById('bg-video') as HTMLVideoElement;
 
     function setVideoSource() {
-        if (window.innerWidth >= 1000) {
-            // Fuente de video para pantallas medianas y grandes
-            videoElement.src = '/crossfit-2.mp4';
-        } else {
-            // Fuente de video para pantallas pequeñas
-            videoElement.src = '/reel1.mp4';
-        }
+        videoElement.src = '/VÍDEO_BEST-STUDIO.mp4';
 
         // Reiniciar el video
         videoElement.load();
