@@ -60,7 +60,6 @@ import Logo from "./Logo.astro";
           <ul
           class="flex flex-col mt-4 [&>li>a]:transition-colors [&>li]:m-3  [&>li>a]:flex [&>li>a]:justify-between [&>li>a]:duration-200 [&>li>a]:text-black [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-6 [&>li>a]:py-3 [&>li>a]:rounded-md [&>li>a]:w-full"
           >
-            <li><a class="hover:bg-slate-100" href="./"> INICIO <img class="h-5" alt="arrow icon" src="/arrow-icon.svg"></a> </li>
             <li><a class="hover:bg-slate-100" href="#expectations">EXPECTATIVAS<img class="h-5" alt="arrow icon" src="/arrow-icon.svg"></a></li>
             <li><a class="hover:bg-slate-100" href="#">INSTALACIONES<img class="h-5" alt="arrow icon" src="/arrow-icon.svg"></a></li>
             <li><a class="hover:bg-slate-100" href="/about">SABER MÁS<img class="h-5" alt="arrow icon" src="/arrow-icon.svg"></a></li>
@@ -71,7 +70,7 @@ import Logo from "./Logo.astro";
     <div
         id="menu-backdrop"
         class={`
-            absolute bg-gray-600 backdrop-blur-lg rounded
+            absolute bg-red-100 text-blue-600 backdrop-blur-lg rounded
             translate-x-[var(--left)] translate-y-[var(--top)]
             left-0 top-0
             w-[var(--width)] h-[var(--height)]

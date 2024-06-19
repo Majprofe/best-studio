@@ -11,7 +11,7 @@
             <div>
                 <a
                     class="border-[3px] border-white bg-white/5 backdrop-blur-sm text-sm rounded font-medium text-white px-12 py-2 inline-block hover:bg-white hover:text-black transition-colors"
-                    href="#"
+                    href="https://api.whatsapp.com/send?phone=34657710761"
                 >
                     CONTACTA AHORA</a
                 >
@@ -21,28 +21,11 @@
 
 
     <div class="absolute top-0 bottom-0 w-full z-10">
-        <video id="bg-video" class="object-center object-cover h-full w-full" autoplay muted loop>
-            <!-- Fuentes de video -->
+        <video id="bg-video" class="object-center object-cover h-full w-full" autoplay muted loop poster="primer_fotograma.jpg">
+            <source src="VÍDEO_BEST-STUDIO.mp4" type="video/mp4" />
         </video>
     </div>
 </section>
-
-<script>
-    const videoElement = document.getElementById('bg-video') as HTMLVideoElement;
-
-    function setVideoSource() {
-        videoElement.src = '/VÍDEO_BEST-STUDIO.mp4';
-
-        // Reiniciar el video
-        videoElement.load();
-    }
-
-    // Llamar a la función al cargar la página
-    setVideoSource();
-
-    // Llamar a la función cuando se redimensione la ventana
-    window.addEventListener('resize', setVideoSource);
-</script>
 
 <script>
     setTimeout(() => {
