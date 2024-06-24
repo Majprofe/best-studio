@@ -4,7 +4,7 @@ import Logo from "./Logo.astro";
 
 <header
     id="landing-header"
-    class="py-3 px-10 flex items-center fixed top-0 w-full justify-between z-40 text-white bg-black"
+    class="py-3 px-10 flex items-center fixed top-0 w-full justify-between text-white bg-black z-40"
 >
     <a href="./">
         <!-- Enlace al inicio de la página -->
@@ -14,15 +14,16 @@ import Logo from "./Logo.astro";
     </a>
 
     <nav class="flex flex-grow justify-end basis-0">
-        <ul
-            class="flex text-sm [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
-        >
-            <li class="hidden xl:block sm:hidden">
-                <a href="#expectations">EXPECTATIVAS</a>
+        <ul class="flex text-sm [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2">
+            <li class="hidden xl:block sm:hidden relative group">
+                <a href="#expectations" class="relative overflow-hidden">EXPECTATIVAS
+                    <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:left-0 group-hover:w-full"></span>
+                </a>
             </li>
-            <li class="hidden xl:block sm:hidden nav-item relative">
-                <a href="#">INSTALACIONES</a>
-                <!-- Submenu -->
+            <li class="hidden xl:block sm:hidden nav-item relative group">
+                <a href="#" class="relative overflow-hidden">INSTALACIONES
+                    <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:left-0 group-hover:w-full"></span>
+                </a>
                 <div class="submenu absolute">
                     <ul>
                         <li><a href="#">GYM</a></li>
@@ -30,9 +31,10 @@ import Logo from "./Logo.astro";
                     </ul>
                 </div>
             </li>
-            <li class="hidden xl:block sm:hidden nav-item relative">
-                <a href="/about">SABER MÁS</a>
-                <!-- Submenu -->
+            <li class="hidden xl:block sm:hidden nav-item relative group">
+                <a href="/about" class="relative overflow-hidden">SABER MÁS
+                    <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:left-0 group-hover:w-full"></span>
+                </a>
                 <div class="submenu absolute">
                     <ul>
                         <li><a href="/about#clases">CLASES</a></li>
@@ -41,14 +43,20 @@ import Logo from "./Logo.astro";
                     </ul>
                 </div>
             </li>
-            <li class="hidden xl:block sm:hidden"><a href="/contact">CONTACTO</a></li>
-            <li><a id="menu-btn" href="#">
-                <button class="xl:hidden">
-                    <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
-                      <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>
-                    </svg>
-                </button>
-            </a></li>
+            <li class="hidden xl:block sm:hidden relative group">
+                <a href="/contact" class="relative overflow-hidden">CONTACTO
+                    <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:left-0 group-hover:w-full"></span>
+                </a>
+            </li>
+            <li>
+                <a id="menu-btn" href="#">
+                    <button class="xl:hidden">
+                        <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+                            <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 Z"></path>
+                        </svg>
+                    </button>
+                </a>
+            </li>
         </ul>
     </nav>
 
@@ -67,7 +75,7 @@ import Logo from "./Logo.astro";
         </ul>
       </nav>
 
-    <div
+<!--     <div
         id="menu-backdrop"
         class={`
             absolute bg-red-100 text-blue-600 backdrop-blur-lg rounded
@@ -78,7 +86,7 @@ import Logo from "./Logo.astro";
             ease-in-out opacity-0 -z-10
           `}
     >
-    </div>
+    </div> -->
 </header>
 
 <script>
@@ -100,7 +108,7 @@ import Logo from "./Logo.astro";
     });
 </script>
 
-<script>
+<!-- <script>
     const listItem = document.querySelectorAll("#landing-header li");
     const menuBackDrop = document.querySelector(
         "#menu-backdrop",
@@ -147,7 +155,7 @@ import Logo from "./Logo.astro";
 
     const sectionElements = document.querySelectorAll(".landing-section");
     sectionElements.forEach((section) => observer.observe(section));
-</script>
+</script> -->
 
 <style>
     /* Estilos específicos para el submenu */
