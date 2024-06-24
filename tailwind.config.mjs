@@ -8,7 +8,13 @@ export default {
 		fontFamily: {
 			sans: ['Gotham SSm A', 'sans-serif'],
 		},
-		extend: {},
+		extend: {
+			colors: {
+				primary: '#000000',
+				secondary: '#FFFFFF',
+				tertiary: '##DC2626',
+			},
+		},
 	},
 	plugins: [
 		require('@midudev/tailwind-animations'),
