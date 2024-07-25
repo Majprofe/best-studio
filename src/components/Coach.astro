@@ -1,4 +1,8 @@
-<section class="flex flex-col items-center bg-black min-h-dvh ">
+---
+
+---
+
+<!-- <section class="flex flex-col items-center bg-black min-h-dvh ">
   <header class="mt-20">
     <h2
       class="text-white w-auto text-xl font-medium text-center relative sm:text-4xl animate-customPulse"
@@ -44,4 +48,79 @@
   animation: customPulse 5s ease-in-out infinite;
 }
 
+</style> -->
+---
+---
+
+<section class="py-10 bg-gray-100">
+  <!-- Video del Atleta -->
+  <div class="container mx-auto px-4">
+    <div class="video-section mb-10">
+      <video
+        controls
+        crossorigin="anonymous"
+        playsinline
+        autoplay
+        muted
+        class=""
+      >
+        <source src="./reel1.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- Texto y lista -->
+    <div class="text-section mb-10 text-center">
+      <h3 class="text-3xl font-bold mb-4 animate-customPulse">
+        ¿Es Best Studio un centro para ti?
+      </h3>
+      <ol class="list-decimal list-inside text-left mx-auto max-w-2xl">
+        <li class="mb-2">No me motiva ninguna actividad para hacer deporte</li>
+        <li class="mb-2">
+          Creo que necesito un cambio y empezar a cuidar mi salud
+        </li>
+        <li class="mb-2">
+          Busco un lugar donde realmente estén pendientes de mi y obtenga
+          objetivos
+        </li>
+        <li class="mb-2">
+          Encontrar un lugar donde adquiera confianza y este rodeado de personas
+          que valoren mi esfuerzo
+        </li>
+      </ol>
+      <h3 class="text-xl font-bold mb-4">
+        Si te identificas con una o varias frases
+      </h3>
+      <h3 class="text-3xl font-bold mb-4">BEST Studio es para ti</h3>
+    </div>
+
+    <!-- Video del Entrenador Frankie -->
+    <div class="video-section">
+      <video
+        controls
+        crossorigin="anonymous"
+        playsinline
+        autoplay
+        muted
+        class=""
+      >
+        <source src="./reel1.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes slowPulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .animate-slow-pulse {
+    animation: slowPulse 4s infinite;
+  }
 </style>

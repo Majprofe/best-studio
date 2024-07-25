@@ -3,33 +3,43 @@ import Footer from "./Footer.astro";
 ---
 
 <section
-id="expectations"
-    class="bg-black min-h-screen w-screen flex flex-col justify-between"
+  id="expectations"
+  class="bg-black text-white min-h-screen w-screen flex flex-col justify-between"
 >
-    <div class="flex flex-col justify-between items-center p-4 mt-4 xl:flex-row xl:mt-20">
-        <div
-            class="flex flex-col justify-center items-center xl:items-start xl:w-1/2 xl:pr-4 mt-14 mb-4"
-        >
-                <h2 class="text-white text-4xl font-bold text-center mb-4">
-                    Expectativas
-                </h2>
-                <p class="text-white text-lg">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Delectus, voluptates! Corrupti nesciunt alias blanditiis
-                    atque officiis nisi fugiat tenetur, sequi eos id dignissimos
-                    quibusdam neque ullam eaque nobis? Eligendi, eum!
-                </p>
-        </div>
-        <div class="flex justify-center mt-4 xl:w-1/2 xl:mt-0">
-            <img
-                class="w-auto h-auto object-contain"
-                src="./fotoprincipal.jpg"
-                alt="Foto equipo best studio"
-            />
-        </div>
+  <div
+    class="flex flex-col justify-between items-center p-4 mt-4 xl:flex-row xl:mt-20"
+  >
+    <div
+      class="flex flex-col justify-center items-center xl:items-start xl:w-1/2 xl:pr-4 mt-14 mb-4"
+    >
+      <h2 class="text-3xl font-bold text-center">¿Qué ofrecemos?</h2>
+      <h3 class="text-xl font-bold mb-2 mt-6">Cuidamos de ti</h3>
+      <p class="text-lg">
+        Hacemos todo lo que está en nuestras manos para que poco a poco adhieras
+        el deporte a tu vida de una manera sana y sostenible.
+      </p>
+      <h3 class="text-xl font-bold mb-2 mt-4">Marcamos objetivos</h3>
+      <p class="text-lg">
+        En nuestras programaciones avanzamos día a día para mejorar y obtener
+        objetivos perceptibles y de calidad.
+      </p>
+      <h3 class="text-xl font-bold mb-2 mt-4">Tu hora del día</h3>
+      <p class="text-lg">
+        Que el tiempo que estés con nosotros sea un momento en el que disfrutes
+        con el grupo, adquieras confianza y sientas el apoyo de nuestros
+        entrenadores y comunidad.
+      </p>
     </div>
+    <div class="flex justify-center mt-4 xl:w-1/2 xl:mt-0">
+      <img
+        class="w-auto h-auto object-contain"
+        src="./fotoprincipal.jpg"
+        alt="Equipo Best Studio"
+      />
+    </div>
+  </div>
 
-    <footer class="bg-black text-white bottom-0 w-screen">
-        <Footer />
-    </footer>
+  <footer class="bg-black text-white bottom-0 w-screen">
+    <Footer />
+  </footer>
 </section>
