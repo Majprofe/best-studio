@@ -6,33 +6,41 @@ import Footer from "./Footer.astro";
   id="expectations"
   class="bg-black text-white min-h-screen w-screen flex flex-col justify-between"
 >
-  <div
-    class="flex flex-col justify-between items-center p-4 mt-4 xl:flex-row xl:mt-20"
-  >
+  <div class="flex flex-col justify-between items-center xl:flex-row xl:justify-between w-full px-4 xl:px-24">
+    <!-- Texto a la izquierda -->
     <div
-      class="flex flex-col justify-center items-center xl:items-start xl:w-1/2 xl:pr-4 mt-14 mb-4"
+      class="flex flex-col justify-center items-center xl:items-start xl:w-1/2 xl:pr-8 mt-14 mb-4"
     >
-      <h2 class="text-3xl font-bold text-center">¿Qué ofrecemos?</h2>
-      <h3 class="text-xl font-bold mb-2 mt-6">Cuidamos de ti</h3>
-      <p class="text-lg">
-        Hacemos todo lo que está en nuestras manos para que poco a poco adhieras
-        el deporte a tu vida de una manera sana y sostenible.
-      </p>
-      <h3 class="text-xl font-bold mb-2 mt-4">Marcamos objetivos</h3>
-      <p class="text-lg">
-        En nuestras programaciones avanzamos día a día para mejorar y obtener
-        objetivos perceptibles y de calidad.
-      </p>
-      <h3 class="text-xl font-bold mb-2 mt-4">Tu hora del día</h3>
-      <p class="text-lg">
-        Que el tiempo que estés con nosotros sea un momento en el que disfrutes
-        con el grupo, adquieras confianza y sientas el apoyo de nuestros
-        entrenadores y comunidad.
-      </p>
+      <h2 class="text-4xl font-bold text-center xl:text-left">¿Qué ofrecemos?</h2>
+      <div class="mt-6 space-y-6">
+        <div>
+          <h3 class="text-2xl font-bold mb-2">Cuidamos de ti</h3>
+          <p class="text-lg">
+            Hacemos todo lo que está en nuestras manos para que poco a poco adhieras
+            el deporte a tu vida de una manera sana y sostenible.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold mb-2">Marcamos objetivos</h3>
+          <p class="text-lg">
+            En nuestras programaciones avanzamos día a día para mejorar y obtener
+            objetivos perceptibles y de calidad.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold mb-2">Tu hora del día</h3>
+          <p class="text-lg">
+            Que el tiempo que estés con nosotros sea un momento en el que disfrutes
+            con el grupo, adquieras confianza y sientas el apoyo de nuestros
+            entrenadores y comunidad.
+          </p>
+        </div>
+      </div>
     </div>
-    <div class="flex justify-center mt-4 xl:w-1/2 xl:mt-0">
+    <!-- Imagen a la derecha -->
+    <div class="flex justify-center items-center xl:w-1/2 xl:pl-8 mt-4 xl:mt-0">
       <img
-        class="w-auto h-auto object-contain"
+        class="w-full h-auto object-contain rounded-lg shadow-lg"
         src="./fotoprincipal.jpg"
         alt="Equipo Best Studio"
       />

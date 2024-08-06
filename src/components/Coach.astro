@@ -1,126 +1,98 @@
----
+<section id="coach" class="min-h-screen w-screen py-10 bg-black">
+  <div class="container mx-auto text-white">
+    <!-- Sección para Escritorio -->
+    <div class="hidden xl:block">
+      <div class="flex flex-col xl:flex-row xl:justify-between xl:space-x-10">
+        <!-- Contenedor del Texto -->
+        <div class="w-full xl:w-1/3 flex flex-col items-center justify-center mb-10">
+          <div class="text-center xl:text-left">
+            <h2 class="text-4xl font-bold mb-6 animate-bounce">¿Es Best Studio un centro para ti?</h2>
+            <ol class="list-decimal list-inside text-left mx-auto xl:mx-0 max-w-2xl space-y-4">
+              <li>No me motiva ninguna actividad para hacer deporte</li>
+              <li>Creo que necesito un cambio y empezar a cuidar mi salud</li>
+              <li>Busco un lugar donde realmente estén pendientes de mi y obtenga objetivos</li>
+              <li>Encontrar un lugar donde adquiera confianza y este rodeado de personas que valoren mi esfuerzo</li>
+            </ol>
+            <h3 class="text-2xl font-bold mt-8">SI HAS RESPONDIDO SÍ, ¡BEST STUDIO ES PARA TÍ!</h3>
+          </div>
+        </div>
 
----
-
-<!-- <section class="flex flex-col items-center bg-black min-h-dvh ">
-  <header class="mt-20">
-    <h2
-      class="text-white w-auto text-xl font-medium text-center relative sm:text-4xl animate-customPulse"
-    >
-      ¿Es Best Studio un centro para ti?
-    </h2>
-  </header>
-
-  <div
-    class="flex flex-col items-center justify-start w-full h-full mt-4 sm:flex-row sm:justify-around sm:p-4 sm:mt-6"
-  >
-    <video
-      controls
-      crossorigin="anonymous"
-      playsinline
-      autoplay
-      muted
-      class="w-1/2 xl:w-1/3 h-full sm:pr-2 rounded-lg"
-    >
-      <source src="./reel1.mp4" type="video/mp4" />
-    </video>
-    <video
-      controls
-      crossorigin="anonymous"
-      playsinline
-      autoplay
-      muted
-      class="w-1/2 xl:w-1/3 h-full mt-2 sm:pl-2 sm:mt-0 xl:mt-0"
-    >
-      <source src="./reel1.mp4" type="video/mp4" />
-    </video>
-  </div>
-</section>
-
-<style>
-  @keyframes customPulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.5; }
-  100% { opacity: 1; }
-}
-
-.animate-customPulse {
-  animation: customPulse 5s ease-in-out infinite;
-}
-
-</style> -->
----
----
-
-<section class="py-10 bg-gray-100">
-  <!-- Video del Atleta -->
-  <div class="container mx-auto px-4">
-    <div class="video-section mb-10">
-      <video
-        controls
-        crossorigin="anonymous"
-        playsinline
-        autoplay
-        muted
-        class=""
-      >
-        <source src="./reel1.mp4" type="video/mp4" />
-      </video>
+        <!-- Videos -->
+        <div class="w-full xl:w-2/3 flex flex-col xl:flex-row justify-center xl:justify-between space-y-10 xl:space-y-0 xl:space-x-10">
+          <div class="text-center">
+            <video controls crossorigin="anonymous" playsinline autoplay loop muted class="rounded-lg w-full">
+              <source src="./reel1.mp4" type="video/mp4" />
+            </video>
+            <h3 class="mt-4 text-lg font-bold">NOMBRE ATLETA</h3>
+            <p>Miembro desde 2019</p>
+          </div>
+          <div class="text-center">
+            <video controls crossorigin="anonymous" playsinline autoplay loop muted class="rounded-lg w-full">
+              <source src="./reel1.mp4" type="video/mp4" />
+            </video>
+            <h3 class="mt-4 text-lg font-bold">CARLOS</h3>
+            <p>Head Coach</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Texto y lista -->
-    <div class="text-section mb-10 text-center">
-      <h3 class="text-3xl font-bold mb-4 animate-customPulse">
-        ¿Es Best Studio un centro para ti?
-      </h3>
-      <ol class="list-decimal list-inside text-left mx-auto max-w-2xl">
-        <li class="mb-2">No me motiva ninguna actividad para hacer deporte</li>
-        <li class="mb-2">
-          Creo que necesito un cambio y empezar a cuidar mi salud
-        </li>
-        <li class="mb-2">
-          Busco un lugar donde realmente estén pendientes de mi y obtenga
-          objetivos
-        </li>
-        <li class="mb-2">
-          Encontrar un lugar donde adquiera confianza y este rodeado de personas
-          que valoren mi esfuerzo
-        </li>
-      </ol>
-      <h3 class="text-xl font-bold mb-4">
-        Si te identificas con una o varias frases
-      </h3>
-      <h3 class="text-3xl font-bold mb-4">BEST Studio es para ti</h3>
-    </div>
+    <!-- Sección para Móviles -->
+    <div class="flex flex-col xl:hidden items-center space-y-6">
+      <!-- Video del Atleta -->
+      <div class="relative w-full text-center mb-6">
+        <video controls crossorigin="anonymous" playsinline loop autoplay muted class="rounded-lg w-full">
+          <source src="./reel1.mp4" type="video/mp4" />
+        </video>
+        <div class="absolute top-0 right-0 bg-black/70 text-white p-2 rounded">
+          <p class="m-0 font-bold text-xs">MIEMBRO DESDE 2019</p>
+          <h3 class="text-3xl text-bold font-bold m-0">MACARENA</h3>
+        </div>
+      </div>
 
-    <!-- Video del Entrenador Frankie -->
-    <div class="video-section">
-      <video
-        controls
-        crossorigin="anonymous"
-        playsinline
-        autoplay
-        muted
-        class=""
-      >
-        <source src="./reel1.mp4" type="video/mp4" />
-      </video>
+      <!-- Texto -->
+      <div class="w-full text-center mb-6 px-4">
+        <h2 class="text-4xl font-bold mb-6 animate-bounce">¿Es Best Studio un centro para ti?</h2>
+        <ol class="list-decimal list-inside text-left mx-auto max-w-2xl">
+          <li class="mb-6">No me motiva ninguna actividad para hacer deporte</li>
+          <li class="mb-6">Creo que necesito un cambio y empezar a cuidar mi salud</li>
+          <li class="mb-6">Busco un lugar donde realmente estén pendientes de mi y obtenga objetivos</li>
+          <li class="mb-6">Encontrar un lugar donde adquiera confianza y este rodeado de personas que valoren mi esfuerzo</li>
+        </ol>
+        <h3 class="text-2xl font-bold mb-6 mt-8">SI HAS RESPONDIDO SÍ, ¡BEST STUDIO ES PARA TÍ!</h3>
+        <div class="mb-6">
+          <a class="border-[3px] border-white bg-white/5 backdrop-blur-sm text-sm rounded font-medium text-white px-12 py-2 inline-block hover:bg-white hover:text-black transition-colors" href="https://api.whatsapp.com/send?phone=34657710761">CONTACTA AHORA</a>
+        </div>
+      </div>
+
+      <!-- Video del Entrenador -->
+      <div class="relative w-full text-center mb-6">
+        <video controls crossorigin="anonymous" playsinline loop autoplay muted class="rounded-lg w-full">
+          <source src="./reel1.mp4" type="video/mp4" />
+        </video>
+        <div class="absolute top-0 right-0 bg-black/70 text-white p-2 rounded">
+          <p class="m-0 font-bold text-xs">HEAD COACH</p>
+          <h3 class="text-3xl text-bold font-bold m-0">CARLOS</h3>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  @keyframes slowPulse {
-    0%,
-    100% {
-      opacity: 1;
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
     }
-    50% {
-      opacity: 0.5;
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
     }
   }
 
-  .animate-slow-pulse {
-    animation: slowPulse 4s infinite;
+  .animate-bounce {
+    animation: bounce 2s infinite;
   }
 </style>
