@@ -2,37 +2,75 @@
   id="expectations"
   class="bg-black text-white w-screen flex flex-col justify-between py-8"
 >
-  <div class="flex flex-col justify-between items-center xl:flex-row xl:justify-between w-full px-4 xl:px-24">
+  <div
+    class="flex flex-col justify-between items-center xl:flex-row xl:justify-between w-full px-4 xl:px-24"
+  >
     <!-- Texto a la izquierda -->
     <div
       class="flex flex-col justify-center items-center xl:items-start xl:w-1/2 xl:pr-8 mb-4"
     >
-      <h2 class="text-4xl font-bold text-center xl:text-left">¿Qué ofrecemos?</h2>
-      <div class="mt-6 space-y-6">
-        <div>
-          <h3 class="text-2xl font-bold mb-2">Cuidamos de ti</h3>
-          <p class="text-lg">
-            Hacemos todo lo que está en nuestras manos para que poco a poco adhieras
-            el deporte a tu vida de una manera sana y sostenible.
-          </p>
-        </div>
-        <div>
-          <h3 class="text-2xl font-bold mb-2">Marcamos objetivos</h3>
-          <p class="text-lg">
-            En nuestras programaciones avanzamos día a día para mejorar y obtener
-            objetivos perceptibles y de calidad.
-          </p>
-        </div>
-        <div>
-          <h3 class="text-2xl font-bold mb-2">Tu hora del día</h3>
-          <p class="text-lg">
-            Que el tiempo que estés con nosotros sea un momento en el que disfrutes
-            con el grupo, adquieras confianza y sientas el apoyo de nuestros
-            entrenadores y comunidad.
-          </p>
-        </div>
+      <h2 class="text-4xl font-extrabold text-center xl:text-left font-poppins tracking-wide">
+        ¿Qué ofrecemos?
+      </h2>
+      <div class="mt-6 space-y-6 w-full">
+
+        <!-- Cuidamos de ti -->
+        <details class="bg-gray-800 rounded-lg shadow-lg p-4 group">
+          <summary
+            class="cursor-pointer select-none font-semibold text-2xl text-white flex items-center justify-between mb-2 transition-all duration-300 ease-in-out group-hover:text-yellow-300"
+          >
+            <span>Cuidamos de ti</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform duration-300 group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </summary>
+          <div class="transition-all duration-500 ease-in-out max-h-0 overflow-hidden group-open:max-h-96">
+            <p class="text-lg mt-2 leading-relaxed">
+              Hacemos todo lo que está en nuestras manos para que poco a poco
+              adhieras el deporte a tu vida de una manera sana y sostenible.
+            </p>
+          </div>
+        </details>
+
+        <!-- Marcamos objetivos -->
+        <details class="bg-gray-800 rounded-lg shadow-lg p-4 group">
+          <summary
+            class="cursor-pointer select-none font-semibold text-2xl text-white flex items-center justify-between mb-2 transition-all duration-300 ease-in-out group-hover:text-yellow-300"
+          >
+            <span>Marcamos objetivos</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform duration-300 group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </summary>
+          <div class="transition-all duration-500 ease-in-out max-h-0 overflow-hidden group-open:max-h-96">
+            <p class="text-lg mt-2 leading-relaxed">
+              En nuestras programaciones avanzamos día a día para mejorar y
+              obtener objetivos perceptibles y de calidad.
+            </p>
+          </div>
+        </details>
+
+        <!-- Tu hora del día -->
+        <details class="bg-gray-800 rounded-lg shadow-lg p-4 group">
+          <summary
+            class="cursor-pointer select-none font-semibold text-2xl text-white flex items-center justify-between mb-2 transition-all duration-300 ease-in-out group-hover:text-yellow-300"
+          >
+            <span>Tu hora del día</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform duration-300 group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </summary>
+          <div class="transition-all duration-500 ease-in-out max-h-0 overflow-hidden group-open:max-h-96">
+            <p class="text-lg mt-2 leading-relaxed">
+              Que el tiempo que estés con nosotros sea un momento en el que
+              disfrutes con el grupo, adquieras confianza y sientas el apoyo de
+              nuestros entrenadores y comunidad.
+            </p>
+          </div>
+        </details>
       </div>
     </div>
+
     <!-- Imagen a la derecha -->
     <div class="flex justify-center items-center xl:w-1/2 xl:pl-8 mt-4 xl:mt-0">
       <img
