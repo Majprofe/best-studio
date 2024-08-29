@@ -1,0 +1,94 @@
+---
+---
+
+<div class="relative w-full overflow-hidden">
+    <!-- Contenedor de las diapositivas -->
+    <div id="carousel" class="flex transition-transform duration-1000 ease-in-out">
+      <!-- Diapositiva 1 -->
+      <div class="min-w-full">
+        <img src="/1inicio.jpg" alt="Imagen 1" class="w-full h-screen object-cover" />
+      </div>
+      <!-- Diapositiva 2 -->
+      <div class="min-w-full">
+        <img src="/2inicio.jpg" alt="Imagen 2" class="w-full h-screen object-cover" />
+      </div>
+      <!-- Diapositiva 3 -->
+      <div class="min-w-full">
+        <img src="/3inicio.jpg" alt="Imagen 3" class="w-full h-screen object-cover" />
+      </div>
+    </div>
+  
+    <!-- Letras superpuestas -->
+    <div class="absolute inset-0 z-30 flex flex-col justify-between h-full text-center">
+      <header class="mt-20">
+        <h2
+          id="main-heading"
+          class="text-white text-bold pt-40 text-8xl xl:text-9xl font-bold opacity-100 transition-opacity duration-1000"
+        >
+          KING OF GYMS
+        </h2>
+        <p
+          id="sub-heading"
+          class="text-white text-4xl xl:text-6xl opacity-100 transition-opacity duration-1000"
+        >
+          Crece entrenando, mejora tu vida
+        </p>
+      </header>
+      <footer class="flex flex-col flex-grow flex-nowrap justify-end pb-28">
+        <div>
+          <button class="bg-white text-black px-6 py-3 rounded-lg">
+            <a href="https://api.whatsapp.com/send?phone=34657710761">
+              CONTACTA AHORA</a>
+          </button>
+        </div>
+      </footer>
+    </div>
+  
+    <!-- Botones de navegación -->
+    <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 px-4 py-2 bg-gray-800 text-white opacity-75 hover:opacity-100">
+      &#10094;
+    </button>
+    <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 px-4 py-2 bg-gray-800 text-white opacity-75 hover:opacity-100">
+      &#10095;
+    </button>
+  </div>
+  
+  <script>
+    const carousel = document.getElementById('carousel');
+    const slides = carousel.children;
+    let currentIndex = 0;
+  
+    function updateCarousel() {
+      carousel.style.transition = 'transform 1s ease, opacity 1s ease';
+      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+      carousel.style.opacity = '0';
+  
+      setTimeout(() => {
+        carousel.style.opacity = '1';
+      }, 50);
+    }
+  
+    // Cambio automático cada 3 segundos
+    function autoSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel();
+    }
+  
+    let slideInterval = setInterval(autoSlide, 3000);
+  
+    // Navegación manual
+    document.getElementById('next').addEventListener('click', () => {
+      clearInterval(slideInterval);
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel();
+      slideInterval = setInterval(autoSlide, 3000);
+    });
+  
+    document.getElementById('prev').addEventListener('click', () => {
+      clearInterval(slideInterval);
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateCarousel();
+      slideInterval = setInterval(autoSlide, 3000);
+    });
+  </script>
+  
