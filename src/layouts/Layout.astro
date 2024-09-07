@@ -5,8 +5,6 @@ interface Props {
 }
 
 const { title } = Astro.props;
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 ---
 
@@ -21,7 +19,6 @@ import "../styles/global.css";
     <title>{title}</title>
   </head>
   <body class="bg-black">
-    <Header class="w-full" />
     <main
       class="scroll-smooth w-full"
     >

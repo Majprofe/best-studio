@@ -1,0 +1,76 @@
+---
+---
+
+<a href="https://api.whatsapp.com/send?phone=34657710761" class="button">
+    CONTACTA AHORA
+  </a>
+  
+  <style>
+    @keyframes floating {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+  
+    @keyframes particles {
+      0% {
+        transform: translateZ(0, 0);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(190px, 50px);
+        opacity: 0;
+      }
+    }
+  
+    .button {
+      position: relative;
+      background: rgba(0, 0, 0, 0.5);
+      display: inline-block;
+      background-size: 200% auto;
+      border: 1px solid;
+      border-radius: 25px;
+      color: white;
+      padding: 10px 48px;
+      font-size: 18px;
+      text-transform: uppercase;
+      text-decoration: none;
+      /* Añadimos una sombra */
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+      animation: floating 3s ease-in-out infinite;
+      transition: color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      border-color: #fde047;
+    }
+  
+    .button::before {
+      content: "";
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border-radius: 30px;
+      box-shadow: 0 0 20px #fde047;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      width: 5px;
+      height: 5px;
+      background: #fde047;
+      animation: particles 2s infinite;
+    }
+  
+    .button:hover {
+      color: #e1c539;
+      box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.4);
+      transform: scale(1.05);
+      background-position: right center;
+      background: linear-gradient(to right, #e1c539, #fde047);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+  

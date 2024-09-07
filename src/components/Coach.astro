@@ -1,4 +1,8 @@
-<section id="coach" class="min-h-screen w-screen py-10 bg-black">
+---
+import ButtonAnimated from "./ButtonAnimated.astro";
+---
+
+<section id="coach" class="min-h-screen w-screen py-16 px-4 bg-black">
   <div class="container mx-auto text-white">
     <!-- Sección para Escritorio -->
     <div class="hidden xl:block">
@@ -13,26 +17,22 @@
               <li>Busco un lugar donde realmente estén pendientes de mi y obtenga objetivos.</li>
               <li>Encontrar un lugar donde adquiera confianza y este rodeado de personas que valoren mi esfuerzo.</li>
             </ol>
-            <h3 class="text-3xl font-bold mt-8">SI HAS RESPONDIDO SÍ,<br/>¡BEST STUDIO ES PARA TÍ!</h3>
+            <h3 class="text-3xl font-bold mt-8 text-center">SI TE IDENTIFICAS CON ALGUNA,<br/>¡BEST STUDIO ES PARA TÍ!</h3>
           </div>
           <div class="mt-8 w-full flex justify-center">
-            <button class="button">
-              <a href="https://api.whatsapp.com/send?phone=34657710761">
-                CONTACTA AHORA</a
-              >
-            </button>
+            <ButtonAnimated />
           </div>
         </div>
 
         <!-- Videos -->
         <div class="w-full xl:w-2/3 flex flex-col xl:flex-row justify-center xl:justify-between space-y-10 xl:space-y-0 xl:space-x-10">
-          <div class="text-center">
+<!--           <div class="text-center">
             <video controls crossorigin="anonymous" playsinline autoplay loop muted class="rounded-lg w-full shadow-lg border border-gray-700">
               <source src="./reel1.mp4" type="video/mp4" />
             </video>
             <h3 class="mt-4 text-lg font-bold">PAOLA</h3>
             <p class="text-gray-300">Miembro desde 2019</p>
-          </div>
+          </div> -->
           <div class="text-center">
             <video controls crossorigin="anonymous" playsinline muted class="rounded-lg w-full shadow-lg border border-gray-700">
               <source src="./reel1.mp4" type="video/mp4" />
@@ -47,7 +47,7 @@
     <!-- Sección para Móviles -->
     <div class="flex flex-col xl:hidden items-center space-y-6">
       <!-- Video del Atleta -->
-      <div class="relative w-full text-center mb-6">
+<!--       <div class="relative w-full text-center mb-6">
         <video controls crossorigin="anonymous" playsinline loop autoplay muted class="rounded-lg w-full">
           <source src="./reel1.mp4" type="video/mp4" />
         </video>
@@ -55,7 +55,7 @@
           <p class="m-0 font-bold text-xs text-gray-300">MIEMBRO DESDE 2019</p>
           <h3 class="text-3xl text-bold font-bold m-0">PAOLA</h3>
         </div>
-      </div>
+      </div> -->
 
       <!-- Texto -->
       <div class="w-full text-center mb-6 px-4">
@@ -66,13 +66,9 @@
           <li class="mb-6">Busco un lugar donde realmente estén pendientes de mi y obtenga objetivos</li>
           <li class="mb-6">Encontrar un lugar donde adquiera confianza y este rodeado de personas que valoren mi esfuerzo</li>
         </ol>
-        <h3 class="text-2xl font-bold mb-6 mt-8">SI HAS RESPONDIDO SÍ,<br/>¡BEST STUDIO ES PARA TÍ!</h3>
+        <h3 class="text-2xl font-bold mb-6 mt-8 text-center">SI TE IDENTIFICAS CON ALGUNA,<br/>¡BEST STUDIO ES PARA TÍ!</h3>
         <div class="mb-6">
-          <button class="button">
-            <a href="https://api.whatsapp.com/send?phone=34657710761">
-              CONTACTA AHORA</a
-            >
-          </button>
+          <ButtonAnimated />
         </div>
       </div>
 
@@ -105,84 +101,5 @@
 
   .animate-bounce {
     animation: bounce 2s infinite;
-  }
-
-  /* Estilos para el botón */
-  @keyframes floating {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-
-    50% {
-      transform: translateY(-5px);
-    }
-  }
-
-  @keyframes particles {
-    0% {
-      transform: translateZ(0, 0);
-      opacity: 1;
-    }
-
-    100% {
-      transform: translate(190px, 50px);
-      opacity: 0;
-    }
-  }
-
-  .button {
-    position: relative;
-    background: rgba(57, 57, 57, 0.7);
-    display: inline-block;
-    background-size: 200% auto;
-    border: 1px solid;
-    border-radius: 25px;
-    color: white;
-    padding: 10px 48px;
-    font-size: 18px;
-    text-transform: uppercase;
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-    animation: floating 3s ease-in-out infinite;
-    transition:
-      color 0.3s ease,
-      box-shadow 0.3s ease,
-      transform 0.3s ease;
-  }
-
-  .button::before {
-    content: "";
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    border-radius: 30px;
-    box-shadow: 0 0 20px #FDE047;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    width: 5px;
-    height: 5px;
-    background: #FDE047;
-    animation: particles 2s infinite;
-  }
-
-  .button::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .button:hover {
-    color: #e1c539;
-    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.4);
-    transform: scale(1.05);
-    background-position: right center;
-    background: linear-gradient(to right, #e1c539, #fde047);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
 </style>

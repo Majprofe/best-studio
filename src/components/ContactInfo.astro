@@ -1,98 +1,88 @@
 ---
 ---
 
+<section
+  id="contact"
+  class="text-white flex flex-col justify-center items-center py-16 bg-gradient-to-b from-black to-gray-600"
+  aria-labelledby="contact-title"
+>
+  <h1 id="contact-title" class="text-center text-4xl font-extrabold uppercase tracking-widest">
+    Contacto
+  </h1>
+  <h2 class="text-base text-center pt-4 tracking-wide max-w-lg">
+    Escríbenos y pasa a formar parte de<br />
+    <strong class="text-tertiary">The King of Gyms</strong>
+  </h2>
+
+  <div
+    class="text-white flex flex-col md:flex-row md:justify-evenly items-center p-10 gap-12"
+  >
+    <!-- Contáctanos -->
+    <article
+      class="w-full max-w-sm text-center bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform min-h-[225px] bg-gradient-to-b from-gray-600 via-gray-700 to-gray-800 border border-gray-500 hover:shadow-inner"
+      aria-labelledby="contact-us"
+    >
+      <h2 id="contact-us" class="text-2xl font-bold mb-4">Contáctanos</h2>
+      <a
+        href="mailto:info@beststudio.com"
+        target="_blank"
+        rel="noopener"
+        class="block text-lg mb-2 text-gray-300 hover:text-tertiary transition-colors"
+        >info@beststudio.com</a
+      >
+      <a
+        href="tel:+34657710761"
+        class="block text-lg text-gray-300 hover:text-tertiary transition-colors"
+        >657 71 07 61</a
+      >
+      <a
+        href="https://api.whatsapp.com/send?phone=34657710761"
+        class="block mt-4"
+      >
+        <img
+          src="/whatsappIcon.svg"
+          alt="WhatsApp Icon"
+          class="inline-block w-12 h-12 object-contain bg-transparent"
+        />
+      </a>
+    </article>
+
+    <!-- Dirección -->
+    <article
+      class="w-full max-w-sm text-center bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform min-h-[225px] bg-gradient-to-b from-gray-600 via-gray-700 to-gray-800 border border-gray-500 hover:shadow-inner"
+      aria-labelledby="address"
+    >
+      <h2 id="address" class="text-2xl font-bold mb-4">Dirección</h2>
+      <p class="text-lg text-gray-300">C/ Curtidores, nave 16, 23740</p>
+      <h3 class="text-lg text-gray-300">Andújar</h3>
+      <a
+        href="https://maps.app.goo.gl/N1u3ckTseNmeT1KP8"
+        rel="noopener"
+        target="_blank"
+        class="text-tertiary flex justify-center items-center mt-4 hover:text-white transition-colors"
+      >
+        <img src="/location.svg" alt="Location Icon" class="h-6 w-auto pr-2" /> VER
+        MAPA
+      </a>
+    </article>
+
+    <!-- Horarios -->
+    <article
+      class="w-full max-w-sm text-center bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform min-h-[225px] bg-gradient-to-b from-gray-600 via-gray-700 to-gray-800 border border-gray-500 hover:shadow-inner"
+      aria-labelledby="hours"
+    >
+      <h3 id="hours" class="text-2xl font-bold mb-4">Horarios</h3>
+      <p class="text-lg text-gray-300">
+        L-V: 08:00h a 15:00h y 16:00h a 22:00h
+      </p>
+      <p class="text-lg text-gray-300">S: 11:00h a 13:00h</p>
+    </article>
+  </div>
+</section>
+
 <style>
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    .animate-fadeIn {
-      animation: fadeIn 1s ease-out;
-    }
-  </style>
-  
-  <section id="contact" class="text-white flex flex-col justify-center items-center p-4">
-      <h1 class="text-center text-4xl font-bold">CONTACTO</h1>
-      <h2 class="text-base text-center pt-6">
-          Escríbenos y pasa a formar parte de
-          <br/><strong>THE KING OF GYMS</strong>
-      </h2>
-  </section>
-  
-  <section class="text-black bg-white flex flex-col justify-center items-center p-10">
-      <article class="w-full max-w-md mb-8">
-          <h2 class="text-2xl font-bold">Contáctanos</h2>
-          <a href="mailto:info@beststudio.com" target="_blank" draggable="false" rel="noopener" class="block">info@beststudio.com</a>
-          <a href="tel:+34657710761" class="block">657 71 07 61</a>
-          <a href="https://api.whatsapp.com/send?phone=34657710761" class="block mt-2">
-              <img src="/icons8-whatsapp.gif" alt="Gif whatsapp" class="inline-block w-12 h-12">
-          </a>          
-      </article>
-      <article class="w-full max-w-md mb-8">
-          <h2 class="text-2xl font-bold">Dirección</h2>
-          <p>C/ Curtidores, nave 16, 23740</p>
-          <h2>Andújar</h2>
-          <a href="https://maps.app.goo.gl/N1u3ckTseNmeT1KP8" rel="noopener" target="_blank" class="text-orange-500 flex items-center mt-2">
-              <img src="/location.svg" alt="Icono localización" class="h-6 w-auto pr-2"> VER MAPA
-          </a>
-      </article>
-      <article class="w-full max-w-md mb-8">
-          <h3 class="text-2xl font-bold">Horarios</h3>
-          <p>L-V: 08:00h a 15:00h y 16:00h a 22:00</p>
-          <p>S: 11:00h a 13:00h</p>
-      </article>
-  </section>
-  
-  <section class="text-white flex flex-col justify-center items-center p-10 border-t border-gray-700">
-      <h2 class="text-2xl font-bold mb-4">Formulario de Contacto</h2>
-      <form action="https://formspree.io/f/{your-form-id}" method="POST" class="w-full max-w-md xl:max-w-lg">
-          <div class="mb-4">
-              <label for="name" class="block text-sm font-bold mb-2">Nombre</label>
-              <input type="text" id="name" name="name" class="w-full p-2 border border-gray-700 bg-black text-white rounded">
-          </div>
-          <div class="mb-4">
-              <label for="email" class="block text-sm font-bold mb-2">Email</label>
-              <input type="email" id="email" name="email" class="w-full p-2 border border-gray-700 bg-black text-white rounded">
-          </div>
-          <div class="mb-4">
-              <label for="subject" class="block text-sm font-bold mb-2">Asunto</label>
-              <input type="text" id="subject" name="subject" class="w-full p-2 border border-gray-700 bg-black text-white rounded">
-          </div>
-          <div class="mb-4">
-              <label for="message" class="block text-sm font-bold mb-2">Mensaje</label>
-              <textarea id="message" name="message" rows="4" class="w-full p-2 border border-gray-700 bg-black text-white rounded"></textarea>
-          </div>
-          <button type="submit" class="w-full bg-white text-black py-2 rounded font-bold">Enviar</button>
-      </form>
-  </section>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const sections = document.querySelectorAll('section');
-  
-      const observer = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('animate-fadeIn');
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.1,
-        }
-      );
-  
-      sections.forEach(section => {
-        observer.observe(section);
-      });
-    });
-  </script>
-  
+  /* Mejora de la animación y disposición moderna */
+  .hover\:scale-105:hover {
+    transform: scale(1.05);
+  }
+</style>
