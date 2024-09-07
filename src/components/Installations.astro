@@ -2,22 +2,23 @@
 ---
 
 <section id="installations" class="bg-black text-white py-16 px-4">
-  <div class="max-w-7xl mx-auto flex flex-col items-center space-y-8">
+  <div class="max-w-full w-full h-screen mx-auto flex flex-col items-center space-y-8">
     <!-- Título de la sección -->
     <h2 class="text-4xl font-bold text-center md:text-left md:text-5xl">
       INSTALACIONES
     </h2>
 
-    <!-- Video responsivo -->
-    <div class="w-full max-w-7xl relative overflow-hidden" style="padding-top: 56.25%;"> <!-- 16:9 Aspect Ratio -->
-      <video 
-        class="absolute top-0 left-0 w-full h-full object-cover"
+    <!-- Video a pantalla completa -->
+    <div class="relative w-full h-screen overflow-hidden"> 
+      <video
+        class="absolute inset-0 w-full h-full object-cover"
         src="/video.webm"
         title="Instalaciones de Best Studio"
         autoplay
         muted
         loop
         playsinline
+        poster="primer_fotograma.jpg"
       ></video>
     </div>
   </div>
