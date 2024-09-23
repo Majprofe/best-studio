@@ -6,26 +6,26 @@ import ButtonAnimated from "./ButtonAnimated.astro";
   <div class="container mx-auto text-white">
     <!-- Sección para Escritorio -->
     <div class="hidden xl:block">
-      <div class="flex flex-col xl:flex-row xl:justify-between xl:space-x-10">
+      <div class="flex flex-col xl:flex-row xl:justify-between xl:items-stretch xl:space-x-10">
         <!-- Contenedor del Texto -->
         <div
           class="w-full xl:w-1/2 flex flex-col items-start justify-center mb-10"
         >
-          <div class="text-left xl:text-left">
-            <h2 class="text-5xl font-bold mb-6 animate-bounce">
+          <div class="text-left">
+            <h2 class="text-5xl text-center font-bold mb-6 animate-bounce">
               ¿Es Best Studio un centro para ti?
             </h2>
             <ol
-              class="list-decimal list-inside mx-0 xl:mx-0 max-w-2xl space-y-6 leading-relaxed"
+              class="list-decimal list-inside mx-0 max-w-2xl space-y-6 leading-relaxed"
             >
               <li>No me motiva ninguna actividad para hacer deporte.</li>
               <li>Creo que necesito un cambio y empezar a cuidar mi salud.</li>
               <li>
-                Busco un lugar donde realmente estén pendientes de mi y obtenga
+                Busco un lugar donde realmente estén pendientes de mí y obtenga
                 objetivos.
               </li>
               <li>
-                Encontrar un lugar donde adquiera confianza y este rodeado de
+                Encontrar un lugar donde adquiera confianza y esté rodeado de
                 personas que valoren mi esfuerzo.
               </li>
             </ol>
@@ -38,32 +38,24 @@ import ButtonAnimated from "./ButtonAnimated.astro";
           </div>
         </div>
 
-        <!-- Videos -->
+        <!-- Contenedor del Video -->
         <div
-          class="w-full xl:w-1/2 flex flex-col xl:flex-row justify-center xl:justify-between space-y-10 xl:space-y-0 xl:space-x-10"
+          class="w-full xl:w-1/2 flex items-center justify-center h-full"
         >
-          <!--           <div class="text-center">
-            <video controls crossorigin="anonymous" playsinline autoplay loop muted class="rounded-lg w-full shadow-lg border border-gray-700">
-              <source src="./reel1.mp4" type="video/mp4" />
-            </video>
-            <h3 class="mt-4 text-lg font-bold">PAOLA</h3>
-            <p class="text-gray-300">Miembro desde 2019</p>
-          </div> -->
-          <div class="text-center w-full">
-            <div class="relative pb-9/16 w-full">
+          <div class="text-center w-full h-full flex items-center justify-center">
+            <!-- Aplicamos una transformación de escala al video -->
+            <div class="transform scale-50">
               <video
                 autoplay
                 controls
                 crossorigin="anonymous"
                 playsinline
                 muted
-                class="top-0 left-0 w-full h-full rounded-lg shadow-lg border border-gray-700 object-cover"
+                class="rounded-lg shadow-lg border border-gray-700 object-contain"
               >
                 <source src="./coach.webm" type="video/webm" />
               </video>
             </div>
-            <h3 class="mt-4 text-lg font-bold">CARLOS</h3>
-            <p class="text-gray-300">Head Coach</p>
           </div>
         </div>
       </div>
@@ -71,20 +63,9 @@ import ButtonAnimated from "./ButtonAnimated.astro";
 
     <!-- Sección para Móviles -->
     <div class="flex flex-col xl:hidden items-center space-y-6">
-      <!-- Video del Atleta -->
-      <!--       <div class="relative w-full text-center mb-6">
-        <video controls crossorigin="anonymous" playsinline loop autoplay muted class="rounded-lg w-full">
-          <source src="./reel1.mp4" type="video/mp4" />
-        </video>
-        <div class="absolute top-0 right-0 bg-black/70 text-white p-2 rounded">
-          <p class="m-0 font-bold text-xs text-gray-300">MIEMBRO DESDE 2019</p>
-          <h3 class="text-3xl text-bold font-bold m-0">PAOLA</h3>
-        </div>
-      </div> -->
-
       <!-- Texto -->
       <div class="w-full text-center mb-6 px-4">
-        <h2 class="text-4xl font-bold mb-6 animate-bounce">
+        <h2 class="text-4xl text-center font-bold mb-6 animate-bounce">
           ¿Es Best Studio un centro para ti?
         </h2>
         <ol class="list-decimal list-inside text-left mx-auto max-w-2xl">
@@ -95,11 +76,11 @@ import ButtonAnimated from "./ButtonAnimated.astro";
             Creo que necesito un cambio y empezar a cuidar mi salud
           </li>
           <li class="mb-6">
-            Busco un lugar donde realmente estén pendientes de mi y obtenga
+            Busco un lugar donde realmente estén pendientes de mí y obtenga
             objetivos
           </li>
           <li class="mb-6">
-            Encontrar un lugar donde adquiera confianza y este rodeado de
+            Encontrar un lugar donde adquiera confianza y esté rodeado de
             personas que valoren mi esfuerzo
           </li>
         </ol>
@@ -152,5 +133,10 @@ import ButtonAnimated from "./ButtonAnimated.astro";
 
   .animate-bounce {
     animation: bounce 2s infinite;
+  }
+
+  /* Clase personalizada para escalar al 33% */
+  .scale-33 {
+    transform: scale(0.33);
   }
 </style>
