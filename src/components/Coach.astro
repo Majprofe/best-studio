@@ -2,57 +2,41 @@
 import ButtonAnimated from "./ButtonAnimated.astro";
 ---
 
-<section id="coach" class="min-h-screen w-screen py-8 px-4 bg-black">
-  <div class="container mx-auto text-white">
-    <!-- Sección para Escritorio -->
+<section id="coach" class="w-screen px-4 bg-black relative overflow-hidden parallax">
+  <!-- Overlay oscuro con menor opacidad para el fondo -->
+  <div class="absolute inset-0 bg-black opacity-20 z-0"></div>
+
+  <div class="container mx-auto relative z-10 py-4">
+    <!-- Contenedor del Texto para Escritorio -->
     <div class="hidden xl:block">
       <div class="flex flex-col xl:flex-row xl:justify-between xl:items-stretch xl:space-x-6">
-        <!-- Contenedor del Texto -->
-        <div
-          class="w-full xl:w-1/2 flex flex-col items-start justify-center mb-6"
-        >
-          <div class="text-left">
-            <h2 class="text-5xl text-center font-bold mb-6 animate-pulse">
+        <!-- Contenedor del Texto y Botón Juntos con Animación -->
+        <div class="w-full xl:w-1/2 flex flex-col items-start justify-center mb-6 observer-target">
+          <div class="bg-black/40 p-8 rounded-lg text-left w-full">
+            <h2 class="text-5xl text-center font-bold mb-6 text-white text-shadow-lg">
               ¿Es Best Studio un centro para ti?
             </h2>
-            <ol
-              class="text-xl list-decimal list-inside mx-0 max-w-2xl space-y-6 leading-relaxed"
-            >
+            <ol class="text-xl text-white list-decimal list-inside mx-0 max-w-2xl space-y-6 leading-relaxed text-shadow-md">
               <li>No me motiva ninguna actividad para hacer deporte.</li>
               <li>Creo que necesito un cambio y empezar a cuidar mi salud.</li>
-              <li>
-                Busco un lugar donde realmente estén pendientes de mí y obtenga
-                objetivos.
-              </li>
-              <li>
-                Encontrar un lugar donde adquiera confianza y esté rodeado de
-                personas que valoren mi esfuerzo.
-              </li>
+              <li>Busco un lugar donde realmente estén pendientes de mí y obtenga objetivos.</li>
+              <li>Encontrar un lugar donde adquiera confianza y esté rodeado de personas que valoren mi esfuerzo.</li>
             </ol>
-            <h3 class="text-3xl font-bold mt-8 text-center">
+            <h3 class="text-3xl font-bold mt-8 text-center text-white text-shadow-lg">
               SI TE IDENTIFICAS CON ALGUNA,<br />¡BEST STUDIO ES PARA TÍ!
             </h3>
-          </div>
-          <div class="mt-8 w-full flex justify-center">
-            <ButtonAnimated />
+            <div class="mt-8 w-full flex justify-center">
+              <ButtonAnimated />
+            </div>
           </div>
         </div>
 
         <!-- Contenedor del Video -->
-        <div
-          class="w-full xl:w-1/2 flex items-center justify-center h-full"
-        >
-          <div class="text-center w-full h-full flex items-center justify-center">
+        <div class="w-full xl:w-1/2 flex items-center justify-center">
+          <div class="text-center w-full flex items-center justify-center">
             <!-- Aplicamos una transformación de escala al video -->
             <div class="transform scale-50">
-              <video
-                autoplay
-                controls
-                crossorigin="anonymous"
-                playsinline
-                muted
-                class="rounded-lg shadow-lg border border-gray-700 object-contain"
-              >
+              <video autoplay controls crossorigin="anonymous" playsinline muted class="rounded-lg shadow-lg border border-gray-700 object-contain">
                 <source src="./coach.webm" type="video/webm" />
               </video>
             </div>
@@ -62,75 +46,102 @@ import ButtonAnimated from "./ButtonAnimated.astro";
     </div>
 
     <!-- Sección para Móviles -->
-    <div class="flex flex-col xl:hidden items-center space-y-6">
-      <!-- Texto -->
+    <div class="flex flex-col xl:hidden items-center space-y-6 mt-10 observer-target">
+      <!-- Texto y Botón Juntos con Animación -->
       <div class="w-full text-center mb-6 px-4">
-        <h2 class="text-4xl text-center font-bold mb-6 animate-pulse">
-          ¿Es Best Studio un centro para ti?
-        </h2>
-        <ol class="text-xl list-decimal list-inside text-left mx-auto max-w-2xl">
-          <li class="mb-6">
-            No me motiva ninguna actividad para hacer deporte
-          </li>
-          <li class="mb-6">
-            Creo que necesito un cambio y empezar a cuidar mi salud
-          </li>
-          <li class="mb-6">
-            Busco un lugar donde realmente estén pendientes de mí y obtenga
-            objetivos
-          </li>
-          <li class="mb-6">
-            Encontrar un lugar donde adquiera confianza y esté rodeado de
-            personas que valoren mi esfuerzo
-          </li>
-        </ol>
-        <h3 class="text-2xl font-bold mb-6 mt-8 text-center">
-          SI TE IDENTIFICAS CON ALGUNA,<br />¡BEST STUDIO ES PARA TÍ!
-        </h3>
-        <div class="mb-6">
-          <ButtonAnimated />
+        <div class="bg-black/40 p-6 rounded-lg">
+          <h2 class="text-4xl text-center font-bold mb-6 text-white text-shadow-lg">
+            ¿Es Best Studio un centro para ti?
+          </h2>
+          <ol class="text-xl text-white list-decimal list-inside text-left mx-auto max-w-2xl text-shadow-md">
+            <li class="mb-6">No me motiva ninguna actividad para hacer deporte</li>
+            <li class="mb-6">Creo que necesito un cambio y empezar a cuidar mi salud</li>
+            <li class="mb-6">Busco un lugar donde realmente estén pendientes de mí y obtenga objetivos</li>
+            <li class="mb-6">Encontrar un lugar donde adquiera confianza y esté rodeado de personas que valoren mi esfuerzo</li>
+          </ol>
+          <h3 class="text-2xl font-bold mb-6 mt-8 text-center text-white text-shadow-lg">
+            SI TE IDENTIFICAS CON ALGUNA,<br />¡BEST STUDIO ES PARA TÍ!
+          </h3>
+          <div class="mt-6 w-full flex justify-center">
+            <ButtonAnimated />
+          </div>
         </div>
       </div>
 
       <!-- Video del Entrenador -->
       <div class="relative w-full text-center mb-6">
-        <video
-          controls
-          crossorigin="anonymous"
-          playsinline
-          loop
-          autoplay
-          muted
-          class="rounded-lg w-full"
-        >
+        <video controls crossorigin="anonymous" playsinline loop autoplay muted class="rounded-lg w-full">
           <source src="./coach.webm" type="video/webm" />
         </video>
         <div class="absolute top-0 right-0 bg-black/70 text-white p-2 rounded">
           <p class="m-0 font-bold text-xs text-gray-300">HEAD COACH</p>
-          <h3 class="text-3xl text-bold font-bold m-0">CARLOS</h3>
+          <h3 class="text-3xl font-bold m-0">CARLOS</h3>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<style>
-/* Animación de pulso */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
+<script>
+  if (typeof window !== "undefined") {
+    document.addEventListener("DOMContentLoaded", function () {
+      const observerTargets = document.querySelectorAll('.observer-target');
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-slide-in-left');
+            observer.unobserve(entry.target); // Deja de observar después de la primera aparición
+          }
+        });
+      }, {
+        threshold: 0.3 // El 30% del elemento debe ser visible para activar la animación
+      });
+
+      observerTargets.forEach(target => {
+        observer.observe(target);
+      });
+    });
   }
-  50% {
-    transform: scale(1.05);
+</script>
+
+<style>
+/* Sombra para el texto */
+.text-shadow-lg {
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.text-shadow-md {
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+}
+
+/* Fondo Parallax */
+.parallax {
+  background-image: url('/5inicio.webp');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Animación de deslizamiento desde la izquierda */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
   }
   100% {
-    transform: scale(1);
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 
-.animate-pulse {
-  animation: pulse 2s ease-in-out infinite;
+.animate-slide-in-left {
+  animation: slideInLeft 1.5s ease-out forwards;
 }
 
-
+/* Ocultar inicialmente los elementos observados */
+.observer-target {
+  opacity: 0;
+}
 </style>
