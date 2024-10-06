@@ -1,72 +1,8 @@
 ---
+// slider.astro
+title: "Image Slider"
 import ButtonAnimated from "./ButtonAnimated.astro";
 ---
-
-<section class="relative w-full overflow-hidden h-screen">
-  <!-- Contenedor de las diapositivas -->
-  <div
-    id="carousel"
-    class="flex transition-transform duration-1000 ease-in-out"
-  >
-    <!-- Diapositiva 1 -->
-    <div class="min-w-full">
-      <img
-        src="/1inicio.jpg"
-        alt="Imagen 1"
-        class="w-full h-full object-cover"
-      />
-    </div>
-    <!-- Diapositiva 2 -->
-    <div class="min-w-full">
-      <img
-        src="/2inicio.jpg"
-        alt="Imagen 2"
-        class="w-full h-full object-cover"
-      />
-    </div>
-    <!-- Diapositiva 3 -->
-    <div class="min-w-full">
-      <img
-        src="/3inicio.jpg"
-        alt="Imagen 3"
-        class="w-full h-full object-cover"
-      />
-    </div>
-    <!-- Diapositiva 4 -->
-    <div class="min-w-full">
-      <img
-        src="/4inicio.jpg"
-        alt="Imagen 4"
-        class="w-full h-full object-cover"
-      />
-    </div>
-  </div>
-
-  <!-- Letras superpuestas -->
-  <div
-    class="absolute inset-0 z-30 flex flex-col justify-between h-full text-center"
-  >
-    <header class="mt-20">
-      <h2
-        id="main-heading"
-        class="text-white text-bold pt-40 text-8xl xl:text-9xl font-bold opacity-0 animate-fade-in"
-      >
-        KING OF GYMS
-      </h2>
-      <p
-        id="sub-heading"
-        class="text-white text-4xl xl:text-6xl opacity-0 animate-fade-in delay-1000"
-      >
-        Crece entrenando, mejora tu vida
-      </p>
-    </header>
-    <div class="flex flex-col flex-grow flex-nowrap justify-end pb-28 xl:pb-48">
-      <div class="opacity-0 animate-flip-down animate-delay-[3000ms]">
-        <ButtonAnimated />
-      </div>
-    </div>
-  </div>
-</section>
 
 <script>
   const carousel = document.getElementById("carousel");
@@ -85,9 +21,174 @@ import ButtonAnimated from "./ButtonAnimated.astro";
 
   // Cambio automático cada 3 segundos
   function autoSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
+    currentIndex = (currentIndex + 1) % (slides.length/2);
     updateCarousel();
   }
 
   setInterval(autoSlide, 3000);
+
+  function checkViewport() {
+    const desktopSlides = document.querySelectorAll(".desktop-slide");
+    const mobileSlides = document.querySelectorAll(".mobile-slide");
+    const isMobile = window.innerWidth <= 1024;
+    desktopSlides.forEach((slide) => {
+      slide.classList.toggle("hidden", isMobile);
+    });
+    mobileSlides.forEach((slide) => {
+      slide.classList.toggle("hidden", !isMobile);
+    });
+  }
+
+  if (typeof window !== "undefined") {
+    window.addEventListener("load", checkViewport);
+    window.addEventListener("resize", checkViewport);
+  }
 </script>
+
+<section class="relative w-full overflow-hidden h-screen">
+  <!-- Contenedor de las diapositivas -->
+  <div id="carousel" class="flex transition-transform duration-1000 ease-in-out">
+    <!-- Diapositiva 1 Desktop -->
+    <div class="desktop-slide min-w-full hidden md:block">
+      <img src="/1inicio.webp" alt="Imagen 1" class="w-full h-[100vh] object-cover" />
+    </div>
+    <!-- Diapositiva 2 Desktop -->
+    <div class="desktop-slide min-w-full hidden md:block">
+      <img src="/2inicio.webp" alt="Imagen 2" class="w-full h-screen object-cover" />
+    </div>
+    <!-- Diapositiva 3 Desktop -->
+    <div class="desktop-slide min-w-full hidden md:block">
+      <img src="/3inicio.webp" alt="Imagen 3" class="w-full h-screen object-cover" />
+    </div>
+    <!-- Diapositiva 4 Desktop -->
+    <div class="desktop-slide min-w-full hidden md:block">
+      <img src="/4inicio.webp" alt="Imagen 4" class="w-full h-full object-cover" />
+    </div>
+    <!-- Diapositiva 5 Desktop -->
+    <div class="desktop-slide min-w-full hidden md:block">
+      <img src="/5inicio.webp" alt="Imagen 5" class="w-full h-screen object-cover" />
+    </div>
+    <!-- Diapositiva 1 Mobile -->
+    <div class="mobile-slide min-w-full md:hidden">
+      <img src="/1iniciov.webp" alt="Imagen 1" class="w-full h-screen object-cover" />
+    </div>
+    <!-- Diapositiva 2 Mobile -->
+    <div class="mobile-slide min-w-full md:hidden">
+      <img src="/2iniciov.webp" alt="Imagen 2" class="w-full h-screen object-cover" />
+    </div>
+    <!-- Diapositiva 3 Mobile -->
+    <div class="mobile-slide min-w-full md:hidden">
+      <img src="/3iniciov.webp" alt="Imagen 3" class="w-full h-screen object-cover" />
+    </div>
+    <!-- Diapositiva 4 Mobile -->
+    <div class="mobile-slide min-w-full md:hidden">
+      <img src="/4iniciov.webp" alt="Imagen 4" class="w-full h-screen object-cover" />
+    </div>
+    <!-- Diapositiva 5 Mobile -->
+    <div class="mobile-slide min-w-full md:hidden">
+      <img src="/5iniciov.webp" alt="Imagen 5" class="w-full h-screen object-cover" />
+    </div>
+  </div>
+
+  <!-- Letras superpuestas -->
+  <div class="absolute inset-0 z-30 flex flex-col justify-between h-full text-center">
+    <header class="mt-20">
+      <h2 id="main-heading" class="text-white text-bold pt-40 text-8xl xl:text-9xl font-bold animate-slide-in-bottom">
+        KING OF GYMS
+      </h2>
+      <p id="sub-heading" class="text-white text-4xl xl:text-6xl animate-fade-in-up delay-500">
+        Crece entrenando, mejora tu vida
+      </p>
+    </header>
+    <div class="flex flex-col flex-grow flex-nowrap justify-end pb-28 xl:pb-48">
+      <div class="animate-fade-in-scale animate-delay-[4000ms]">
+        <ButtonAnimated />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .desktop-slide:nth-child(1), .mobile-slide:nth-child(1) {
+    opacity: 1;
+  }
+</style>
+
+<style>
+  /* Animación para el título: deslizamiento hacia abajo */
+  @keyframes slideInBottom {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Animación para el subtítulo: desvanecimiento desde abajo */
+  @keyframes fadeInUp {
+    0% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Animación para el botón: rebote hacia adentro */
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0.3);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+    70% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .animate-slide-in-bottom {
+    animation: slideInBottom 1.5s ease-out forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 2s ease-out forwards;
+  }
+
+  .animate-bounce-in {
+    animation: bounceIn 2.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+  }
+
+  .animate-delay-[500ms] {
+    animation-delay: 500ms;
+  }
+
+  .animate-delay-[4000ms] {
+    animation-delay: 4000ms;
+  }
+
+  @keyframes fadeInScale {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 2.5s ease-out forwards;
+}
+</style>
