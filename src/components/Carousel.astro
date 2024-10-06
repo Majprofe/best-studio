@@ -90,94 +90,55 @@ import ButtonAnimated from "./ButtonAnimated.astro";
     </div>
   </div>
 
-  <!-- Letras superpuestas -->
-  <div class="absolute inset-0 z-30 flex flex-col justify-between h-full text-center">
-    <header class="mt-20">
-      <h2 id="main-heading" class="text-white text-bold pt-40 text-8xl xl:text-9xl font-bold animate-slide-in-bottom">
-        KING OF GYMS
-      </h2>
-      <p id="sub-heading" class="text-white text-4xl xl:text-6xl animate-fade-in-up delay-500">
-        Crece entrenando, mejora tu vida
-      </p>
-    </header>
-    <div class="flex flex-col flex-grow flex-nowrap justify-end pb-28 xl:pb-48">
-      <div class="animate-fade-in-scale animate-delay-[4000ms]">
-        <ButtonAnimated />
-      </div>
+<!-- Letras superpuestas -->
+<div class="absolute inset-0 z-30 flex flex-col justify-between h-full text-center">
+  <header class="mt-20">
+    <h2 id="main-heading" class="text-white text-bold pt-40 text-8xl xl:text-9xl font-bold animate-slide-in-bottom">
+      KING OF GYMS
+    </h2>
+    <p id="sub-heading" class="text-white text-4xl xl:text-6xl animate-fade-in-up delay-500">
+      Crece entrenando, mejora tu vida
+    </p>
+  </header>
+  <div class="flex flex-col flex-grow flex-nowrap justify-end pb-28 xl:pb-48">
+    <div class="animate-fade-in-scale animate-delay-[4000ms]">
+      <ButtonAnimated />
     </div>
   </div>
+</div>
 </section>
 
 <style>
-  .desktop-slide:nth-child(1), .mobile-slide:nth-child(1) {
+.desktop-slide:nth-child(1), .mobile-slide:nth-child(1) {
+  opacity: 1;
+}
+
+/* Animación para el título: deslizamiento hacia abajo */
+@keyframes slideInBottom {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
     opacity: 1;
   }
-</style>
+}
 
-<style>
-  /* Animación para el título: deslizamiento hacia abajo */
-  @keyframes slideInBottom {
-    0% {
-      transform: translateY(-100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
+/* Animación para el subtítulo: desvanecimiento desde abajo */
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
   }
-  
-  /* Animación para el subtítulo: desvanecimiento desde abajo */
-  @keyframes fadeInUp {
-    0% {
-      transform: translateY(50px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
-  /* Animación para el botón: rebote hacia adentro */
-  @keyframes bounceIn {
-    0% {
-      transform: scale(0.3);
-      opacity: 0;
-    }
-    50% {
-      transform: scale(1.05);
-      opacity: 1;
-    }
-    70% {
-      transform: scale(0.9);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
+}
 
-  .animate-slide-in-bottom {
-    animation: slideInBottom 1.5s ease-out forwards;
-  }
-
-  .animate-fade-in-up {
-    animation: fadeInUp 2s ease-out forwards;
-  }
-
-  .animate-bounce-in {
-    animation: bounceIn 2.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
-  }
-
-  .animate-delay-[500ms] {
-    animation-delay: 500ms;
-  }
-
-  .animate-delay-[4000ms] {
-    animation-delay: 4000ms;
-  }
-
-  @keyframes fadeInScale {
+/* Animación para el botón: aparición con escalado */
+@keyframes fadeInScale {
   0% {
     transform: scale(0.5);
     opacity: 0;
@@ -188,7 +149,23 @@ import ButtonAnimated from "./ButtonAnimated.astro";
   }
 }
 
+.animate-slide-in-bottom {
+  animation: slideInBottom 1.5s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 2s ease-out forwards;
+}
+
 .animate-fade-in-scale {
   animation: fadeInScale 2.5s ease-out forwards;
+}
+
+.animate-delay-[500ms] {
+  animation-delay: 500ms;
+}
+
+.animate-delay-[4000ms] {
+  animation-delay: 4000ms;
 }
 </style>

@@ -2,21 +2,21 @@
 import ButtonAnimated from "./ButtonAnimated.astro";
 ---
 
-<section id="coach" class="min-h-screen w-screen py-16 px-4 bg-black">
+<section id="coach" class="min-h-screen w-screen py-8 px-4 bg-black">
   <div class="container mx-auto text-white">
     <!-- Sección para Escritorio -->
     <div class="hidden xl:block">
-      <div class="flex flex-col xl:flex-row xl:justify-between xl:items-stretch xl:space-x-10">
+      <div class="flex flex-col xl:flex-row xl:justify-between xl:items-stretch xl:space-x-6">
         <!-- Contenedor del Texto -->
         <div
-          class="w-full xl:w-1/2 flex flex-col items-start justify-center mb-10"
+          class="w-full xl:w-1/2 flex flex-col items-start justify-center mb-6"
         >
           <div class="text-left">
-            <h2 class="text-5xl text-center font-bold mb-6 animate-bounce">
+            <h2 class="text-5xl text-center font-bold mb-6 animate-pulse">
               ¿Es Best Studio un centro para ti?
             </h2>
             <ol
-              class="list-decimal list-inside mx-0 max-w-2xl space-y-6 leading-relaxed"
+              class="text-xl list-decimal list-inside mx-0 max-w-2xl space-y-6 leading-relaxed"
             >
               <li>No me motiva ninguna actividad para hacer deporte.</li>
               <li>Creo que necesito un cambio y empezar a cuidar mi salud.</li>
@@ -65,10 +65,10 @@ import ButtonAnimated from "./ButtonAnimated.astro";
     <div class="flex flex-col xl:hidden items-center space-y-6">
       <!-- Texto -->
       <div class="w-full text-center mb-6 px-4">
-        <h2 class="text-4xl text-center font-bold mb-6 animate-bounce">
+        <h2 class="text-4xl text-center font-bold mb-6 animate-pulse">
           ¿Es Best Studio un centro para ti?
         </h2>
-        <ol class="list-decimal list-inside text-left mx-auto max-w-2xl">
+        <ol class="text-xl list-decimal list-inside text-left mx-auto max-w-2xl">
           <li class="mb-6">
             No me motiva ninguna actividad para hacer deporte
           </li>
@@ -115,28 +115,22 @@ import ButtonAnimated from "./ButtonAnimated.astro";
 </section>
 
 <style>
-  @keyframes bounce {
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-      transform: translateY(0);
-    }
-    40% {
-      transform: translateY(-30px);
-    }
-    60% {
-      transform: translateY(-15px);
-    }
+/* Animación de pulso */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
   }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
-  .animate-bounce {
-    animation: bounce 2s infinite;
-  }
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
 
-  /* Clase personalizada para escalar al 33% */
-  .scale-33 {
-    transform: scale(0.33);
-  }
+
 </style>
