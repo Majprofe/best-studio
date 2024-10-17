@@ -168,3 +168,59 @@
         });
     });
 </script>
+
+<!-- JavaScript para manejar el botón "Leer más" -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleButtons = document.querySelectorAll('.toggle-button');
+        
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const contentPreview = this.previousElementSibling.previousElementSibling;
+                const contentFull = this.previousElementSibling;
+                
+                // Alternar la visibilidad del contenido completo
+                contentFull.classList.toggle('hidden');
+                
+                // Cambiar el texto del botón
+                if (contentFull.classList.contains('hidden')) {
+                    this.textContent = 'Leer más';
+                } else {
+                    this.textContent = 'Leer menos';
+                }
+            });
+        });
+    });
+</script>
+
+<!-- Estilos adicionales -->
+<style>
+  /* Estilos base para el contenido oculto y visible */
+  .hidden {
+      display: none;
+  }
+
+  /* Estilo del botón "Leer más" */
+  .toggle-button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: black;
+      background-color: #F4F91D;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      align: center;
+  }
+
+  .toggle-button:hover {
+      background-color: #b8bb1f;
+  }
+
+  .toggle-button:focus {
+      outline: none;
+  }
+</style>
