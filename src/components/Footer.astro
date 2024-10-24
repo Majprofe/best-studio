@@ -1,18 +1,22 @@
 ---
-import Instagram from "./Instagram.astro";
+import SocialMedia from "./SocialMedia.astro"
 ---
+<footer class="bg-black text-white pb-16">
+  <div class="container mx-auto px-4">
 
-<footer
-    class="bg-black text-center overflow-hidden relative flex flex-grow flex-nowrap justify-center border-t border-stroke"
->
-    <nav>
-        <ul
-            class="flex justify-end items-center pt-2 [&>li>a]:text-white [&>li>a]:inline-block [&>li>a]:px-2 [&>li>a]:py-2"
-        >
-            <Instagram />
-            <li><a href="#">Best Studio ©</a></li>
-            <li><a href="#">Localización</a></li>
-            <li><a href="#">Contacto</a></li>
-        </ul>
+    <!-- Redes sociales (centrado en el centro de la web) -->
+    <div class="flex justify-center mb-6">
+      <SocialMedia />
+    </div>
+
+    <!-- Enlaces legales y derechos (alineados a la derecha en escritorio, centrados en móviles) -->
+    <nav class="flex flex-col md:flex-row md:justify-center items-center space-y-4 md:space-y-0 md:space-x-4 text-center md:text-right">
+      <a href="/aviso-legal" class="hover:text-gray-300 transition duration-300">Aviso Legal</a>
+      <a href="/politica-privacidad" class="hover:text-gray-300 transition duration-300">Política de Privacidad</a>
+      <a href="/politica-cookies" class="hover:text-gray-300 transition duration-300">Política de Cookies</a>
+      <p>Made with ❣️ by <a href="/politica-cookies" class="hover:text-gray-300 transition duration-300">XXX</a></p>
+      <p class="text-sm text-gray-400">© 2024 Best Studio</p>
     </nav>
+
+  </div>
 </footer>

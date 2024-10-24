@@ -1,0 +1,38 @@
+---
+---
+<button
+  id="back-to-top"
+  class="fixed bottom-8 right-8 p-3 z-10 rounded-full bg-gray-600 text-white shadow-lg hover:bg-gray-800 transition-opacity duration-300 opacity-0 pointer-events-none"
+  onclick="scrollToTop()"
+  aria-label="Volver arriba"
+>
+  <!-- Icono de flecha hacia arriba -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+    viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+      d="M5 15l7-7 7 7" />
+  </svg>
+</button>
+
+<script is:inline>
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const backToTopButton = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 2000) { // Ajusta este valor según tus necesidades
+        backToTopButton.classList.remove('opacity-0', 'pointer-events-none');
+        backToTopButton.classList.add('opacity-100');
+      } else {
+        backToTopButton.classList.add('opacity-0', 'pointer-events-none');
+        backToTopButton.classList.remove('opacity-100');
+      }
+    });
+  });
+</script>

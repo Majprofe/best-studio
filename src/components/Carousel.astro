@@ -3,100 +3,184 @@
 title: "Image Slider"
 import ButtonAnimated from "./ButtonAnimated.astro";
 ---
-
 <script>
-  const carousel = document.getElementById("carousel");
-  const slides = carousel.children;
-  let currentIndex = 0;
+  let currentIndexDesktop = 0;
+  let currentIndexMobile = 0;
 
-  function updateCarousel() {
-    carousel.style.transition = "transform 1s ease, opacity 1s ease";
-    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-    carousel.style.opacity = "0";
-
-    setTimeout(() => {
-      carousel.style.opacity = "1";
-    }, 50);
+  function updateCarouselDesktop() {
+    const carouselDesktop = document.getElementById("carousel-desktop");
+    carouselDesktop.style.transform = `translateX(-${currentIndexDesktop * 100}%)`;
   }
 
-  // Cambio automático cada 3 segundos
-  function autoSlide() {
-    currentIndex = (currentIndex + 1) % (slides.length/2);
-    updateCarousel();
+  function updateCarouselMobile() {
+    const carouselMobile = document.getElementById("carousel-mobile");
+    carouselMobile.style.transform = `translateX(-${currentIndexMobile * 100}%)`;
   }
 
-  setInterval(autoSlide, 3000);
+  // Cambio automático cada 3 segundos para escritorio
+  function autoSlideDesktop() {
+    const slidesDesktop = document.querySelectorAll("#carousel-desktop .desktop-slide");
+    currentIndexDesktop = (currentIndexDesktop + 1) % slidesDesktop.length;
+    updateCarouselDesktop();
+  }
 
-  function checkViewport() {
-    const desktopSlides = document.querySelectorAll(".desktop-slide");
-    const mobileSlides = document.querySelectorAll(".mobile-slide");
-    const isMobile = window.innerWidth <= 1024;
-    desktopSlides.forEach((slide) => {
-      slide.classList.toggle("hidden", isMobile);
-    });
-    mobileSlides.forEach((slide) => {
-      slide.classList.toggle("hidden", !isMobile);
-    });
+  // Cambio automático cada 3 segundos para móvil
+  function autoSlideMobile() {
+    const slidesMobile = document.querySelectorAll("#carousel-mobile .mobile-slide");
+    currentIndexMobile = (currentIndexMobile + 1) % slidesMobile.length;
+    updateCarouselMobile();
   }
 
   if (typeof window !== "undefined") {
-    window.addEventListener("load", checkViewport);
-    window.addEventListener("resize", checkViewport);
+    window.addEventListener("load", function() {
+      if (window.innerWidth >= 768) {
+        setInterval(autoSlideDesktop, 3000);
+      } else {
+        setInterval(autoSlideMobile, 3000);
+      }
+
+      window.addEventListener("resize", function() {
+        // Reiniciar el carrusel al cambiar el tamaño de la ventana
+        if (window.innerWidth >= 768) {
+          currentIndexMobile = 0;
+          updateCarouselMobile();
+        } else {
+          currentIndexDesktop = 0;
+          updateCarouselDesktop();
+        }
+      });
+    });
   }
 </script>
 
+
 <section class="relative w-full overflow-hidden h-screen">
   <!-- Contenedor de las diapositivas -->
-  <div id="carousel" class="flex transition-transform duration-1000 ease-in-out">
+  <!-- Carrusel de escritorio -->
+  <div
+    id="carousel-desktop"
+    class="flex transition-transform duration-1000 ease-in-out hidden md:flex"
+  >
     <!-- Diapositiva 1 Desktop -->
-    <div class="desktop-slide min-w-full hidden md:block">
-      <img src="/1inicio.webp" alt="Imagen 1" class="w-full h-[100vh] object-cover" />
+    <div class="desktop-slide min-w-full">
+      <img
+        src="/carousel/1inicio.webp"
+        alt="Imagen 1"
+        class="w-full h-[100vh] object-cover"
+      />
     </div>
     <!-- Diapositiva 2 Desktop -->
-    <div class="desktop-slide min-w-full hidden md:block">
-      <img src="/2inicio.webp" alt="Imagen 2" class="w-full h-screen object-cover" />
+    <div class="desktop-slide min-w-full">
+      <img
+        src="/carousel/2inicio.webp"
+        alt="Imagen 2"
+        class="w-full h-screen object-cover"
+      />
     </div>
     <!-- Diapositiva 3 Desktop -->
-    <div class="desktop-slide min-w-full hidden md:block">
-      <img src="/3inicio.webp" alt="Imagen 3" class="w-full h-screen object-cover" />
+    <div class="desktop-slide min-w-full">
+      <img
+        src="/carousel/3inicio.webp"
+        alt="Imagen 3"
+        class="w-full h-screen object-cover"
+      />
     </div>
     <!-- Diapositiva 4 Desktop -->
-    <div class="desktop-slide min-w-full hidden md:block">
-      <img src="/4inicio.webp" alt="Imagen 4" class="w-full h-full object-cover" />
-    </div>
-    <!-- Diapositiva 5 Desktop -->
-    <div class="desktop-slide min-w-full hidden md:block">
-      <img src="/5inicio.webp" alt="Imagen 5" class="w-full h-screen object-cover" />
-    </div>
-    <!-- Diapositiva 1 Mobile -->
-    <div class="mobile-slide min-w-full md:hidden">
-      <img src="/1iniciov.webp" alt="Imagen 1" class="w-full h-screen object-cover" />
-    </div>
-    <!-- Diapositiva 2 Mobile -->
-    <div class="mobile-slide min-w-full md:hidden">
-      <img src="/2iniciov.webp" alt="Imagen 2" class="w-full h-screen object-cover" />
-    </div>
-    <!-- Diapositiva 3 Mobile -->
-    <div class="mobile-slide min-w-full md:hidden">
-      <img src="/3iniciov.webp" alt="Imagen 3" class="w-full h-screen object-cover" />
-    </div>
-    <!-- Diapositiva 4 Mobile -->
-    <div class="mobile-slide min-w-full md:hidden">
-      <img src="/4iniciov.webp" alt="Imagen 4" class="w-full h-screen object-cover" />
-    </div>
-    <!-- Diapositiva 5 Mobile -->
-    <div class="mobile-slide min-w-full md:hidden">
-      <img src="/5iniciov.webp" alt="Imagen 5" class="w-full h-screen object-cover" />
+    <div class="desktop-slide min-w-full">
+      <img
+        src="/carousel/4inicio.webp"
+        alt="Imagen 4"
+        class="w-full h-full object-cover"
+      />
     </div>
   </div>
+  <!-- Carrusel móvil -->
+  <div
+    id="carousel-mobile"
+    class="flex transition-transform duration-1000 ease-in-out md:hidden"
+  >
+    <!-- Diapositiva 1 Mobile -->
+    <div class="mobile-slide min-w-full">
+      <img
+        src="/carousel/1iniciov.webp"
+        alt="Imagen 1"
+        class="w-full h-screen object-cover"
+      />
+    </div>
+    <!-- Diapositiva 2 Mobile -->
+    <div class="mobile-slide min-w-full">
+      <img
+        src="/carousel/2iniciov.webp"
+        alt="Imagen 2"
+        class="w-full h-screen object-cover"
+      />
+    </div>
+    <!-- Diapositiva 3 Mobile -->
+    <div class="mobile-slide min-w-full">
+      <img
+        src="/carousel/3iniciov.webp"
+        alt="Imagen 3"
+        class="w-full h-screen object-cover"
+      />
+    </div>
+    <!-- Diapositiva 4 Mobile -->
+    <div class="mobile-slide min-w-full">
+      <img
+        src="/carousel/4iniciov.webp"
+        alt="Imagen 4"
+        class="w-full h-screen object-cover"
+      />
+    </div>
+    <!-- Diapositiva 5 Mobile -->
+    <div class="mobile-slide min-w-full">
+      <img
+        src="/carousel/5iniciov.webp"
+        alt="Imagen 5"
+        class="w-full h-screen object-cover"
+      />
+    </div>
+    <!-- Diapositiva 6 Mobile -->
+    <div class="mobile-slide min-w-full">
+      <img
+        src="/carousel/6iniciov.webp"
+        alt="Imagen 6"
+        class="w-full h-screen object-cover"
+      />
+    </div>
+    <!-- Diapositiva 7 Mobile -->
+    <div class="mobile-slide min-w-full">
+      <img
+        src="/carousel/7iniciov.webp"
+        alt="Imagen 7"
+        class="w-full h-screen object-cover"
+      />
+    </div>
+    <!-- Diapositiva 8 Mobile -->
+    <div class="mobile-slide min-w-full">
+      <img
+        src="/carousel/8iniciov.webp"
+        alt="Imagen 8"
+        class="w-full h-screen object-cover"
+      />
+    </div>
+  </div>
+</section>
 
 <!-- Letras superpuestas -->
-<div class="absolute inset-0 z-30 flex flex-col justify-between h-full text-center">
+<div
+  class="absolute inset-0 z-30 flex flex-col justify-between h-full text-center"
+>
   <header class="mt-20">
-    <h2 id="main-heading" class="text-white text-bold pt-40 text-8xl xl:text-9xl font-bold animate-slide-in-bottom">
+    <h2
+      id="main-heading"
+      class="text-white text-bold pt-40 text-8xl xl:text-9xl font-bold animate-slide-in-bottom"
+    >
       KING OF GYMS
     </h2>
-    <p id="sub-heading" class="text-white text-4xl xl:text-6xl animate-fade-in-up delay-500">
+    <p
+      id="sub-heading"
+      class="text-white text-4xl xl:text-6xl animate-fade-in-up delay-500"
+    >
       Crece entrenando, mejora tu vida
     </p>
   </header>
@@ -106,66 +190,66 @@ import ButtonAnimated from "./ButtonAnimated.astro";
     </div>
   </div>
 </div>
-</section>
 
 <style>
-.desktop-slide:nth-child(1), .mobile-slide:nth-child(1) {
-  opacity: 1;
-}
-
-/* Animación para el título: deslizamiento hacia abajo */
-@keyframes slideInBottom {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
+  .desktop-slide:nth-child(1),
+  .mobile-slide:nth-child(1) {
     opacity: 1;
   }
-}
 
-/* Animación para el subtítulo: desvanecimiento desde abajo */
-@keyframes fadeInUp {
-  0% {
-    transform: translateY(50px);
-    opacity: 0;
+  /* Animación para el título: deslizamiento hacia abajo */
+  @keyframes slideInBottom {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
+
+  /* Animación para el subtítulo: desvanecimiento desde abajo */
+  @keyframes fadeInUp {
+    0% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
-}
 
-/* Animación para el botón: aparición con escalado */
-@keyframes fadeInScale {
-  0% {
-    transform: scale(0.5);
-    opacity: 0;
+  /* Animación para el botón: aparición con escalado */
+  @keyframes fadeInScale {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
   }
-  100% {
-    transform: scale(1);
-    opacity: 1;
+
+  .animate-slide-in-bottom {
+    animation: slideInBottom 1.5s ease-out forwards;
   }
-}
 
-.animate-slide-in-bottom {
-  animation: slideInBottom 1.5s ease-out forwards;
-}
+  .animate-fade-in-up {
+    animation: fadeInUp 2s ease-out forwards;
+  }
 
-.animate-fade-in-up {
-  animation: fadeInUp 2s ease-out forwards;
-}
+  .animate-fade-in-scale {
+    animation: fadeInScale 2.5s ease-out forwards;
+  }
 
-.animate-fade-in-scale {
-  animation: fadeInScale 2.5s ease-out forwards;
-}
+  .animate-delay-[500ms] {
+    animation-delay: 500ms;
+  }
 
-.animate-delay-[500ms] {
-  animation-delay: 500ms;
-}
-
-.animate-delay-[4000ms] {
-  animation-delay: 4000ms;
-}
+  .animate-delay-[4000ms] {
+    animation-delay: 4000ms;
+  }
 </style>
