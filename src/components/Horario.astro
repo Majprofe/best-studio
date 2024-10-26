@@ -1,0 +1,93 @@
+---
+// Horario.astro
+---
+
+<section id="horario" class="horario-container">
+    <a href="https://beststudio.aimharder.com/timetable" target="_blank" rel="noopener noreferrer" class="horario-link">
+        <h2 class="horario-title">HORARIOS</h2>
+    </a>
+</section>
+
+<style>
+    /* Estilos del contenedor */
+    .horario-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    /* Estilo del enlace para que parezca un botón */
+    .horario-link {
+        display: inline-block;
+        padding: 1rem 2rem;
+        border-radius: 0.5rem;
+        background-color: rgba(224, 224, 224, 0.1); /* Fondo suave */
+        border: 2px solid rgba(224, 224, 224, 0.4); /* Borde sutil */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para efecto de botón */
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        text-decoration: none;
+    }
+
+    /* Estilo inicial del título con efecto metálico y brillo */
+    .horario-title {
+        font-size: 3rem; /* Ajuste para dispositivos móviles */
+        font-weight: bold;
+        background: linear-gradient(90deg, #e0e0e0, #ffffff, #b3b3b3, #e0e0e0);
+        background-size: 200%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: shine 3s linear infinite, glow 1.5s ease-in-out infinite alternate;
+    }
+
+    /* Tamaño en escritorio usando media queries */
+    @media (min-width: 768px) {
+        .horario-title {
+            font-size: 4rem; /* Tamaño en escritorio */
+        }
+    }
+
+    /* Efecto en hover para el enlace */
+    .horario-link:hover {
+        background-color: rgba(224, 224, 224, 0.2); /* Fondo más intenso al hacer hover */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+    }
+
+    /* Efecto en hover para el título */
+    .horario-link:hover .horario-title {
+        animation: shine 3s linear infinite, pulse 0.8s ease-in-out infinite alternate;
+        text-shadow: 0 0 20px rgba(224, 224, 224, 0.8), 0 0 30px rgba(224, 224, 224, 0.7), 0 0 40px rgba(224, 224, 224, 0.6);
+    }
+
+    /* Animación de brillo continuo */
+    @keyframes shine {
+        0% {
+            background-position: 200% 0;
+        }
+        100% {
+            background-position: -200% 0;
+        }
+    }
+
+    /* Animación de resplandor continuo */
+    @keyframes glow {
+        from {
+            text-shadow: 0 0 10px rgba(224, 224, 224, 0.6), 0 0 20px rgba(224, 224, 224, 0.5), 0 0 30px rgba(224, 224, 224, 0.4);
+        }
+        to {
+            text-shadow: 0 0 20px rgba(224, 224, 224, 0.6), 0 0 30px rgba(224, 224, 224, 0.5), 0 0 40px rgba(224, 224, 224, 0.4);
+        }
+    }
+
+    /* Nueva animación de pulsación para hover */
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(1.05);
+        }
+    }
+</style>

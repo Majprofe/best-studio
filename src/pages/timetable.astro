@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Horario Best Studio" description="Horario semanal de clases de BEST STUDIO">
+    <section class="container mx-auto my-8 px-4 text-white">
+        <h1 class="text-3xl font-semibold text-center mb-8">Horario Semanal de Clases</h1>
+      
+        <!-- Tabla de horario -->
+        <div class="grid grid-cols-8 gap-4 text-center">
+          <!-- Cabecera de días -->
+          <div class="font-semibold p-2">Hora</div>
+          <div class="font-semibold p-2">Lunes</div>
+          <div class="font-semibold p-2">Martes</div>
+          <div class="font-semibold p-2">Miércoles</div>
+          <div class="font-semibold p-2">Jueves</div>
+          <div class="font-semibold p-2">Viernes</div>
+          <div class="font-semibold p-2">Sábado</div>
+          <div class="font-semibold p-2">Domingo</div>
+      
+          <!-- Ejemplo de filas de clases -->
+          <div class="p-2 bg-gray-100">08:00-09:00</div>
+          <div class="p-2" style="background-color: rgb(196, 163, 0);">OPEN BOX</div>
+          <div class="p-2" style="background-color: rgb(125, 73, 193);">MACHINES</div>
+          <div class="p-2" style="background-color: rgb(36, 144, 244);">CLUB POWERLIFTING</div>
+          <div class="p-2" style="background-color: rgb(196, 163, 0);">OPEN BOX</div>
+          <div class="p-2" style="background-color: rgb(125, 73, 193);">MACHINES</div>
+          <div class="p-2" style="background-color: rgb(36, 144, 244);">CLUB POWERLIFTING</div>
+          <div class="p-2" style="background-color: rgb(196, 163, 0);">OPEN BOX</div>
+      
+          <div class="p-2 bg-gray-100">08:15-09:15</div>
+          <div class="p-2" style="background-color: rgb(189, 4, 130);">WOD</div>
+          <div class="p-2" style="background-color: rgb(189, 4, 130);">WOD</div>
+          <div class="p-2" style="background-color: rgb(189, 4, 130);">WOD</div>
+          <div class="p-2" style="background-color: rgb(189, 4, 130);">WOD</div>
+          <div class="p-2" style="background-color: rgb(189, 4, 130);">WOD</div>
+          <div class="p-2 bg-gray-200">-</div>
+          <div class="p-2 bg-gray-200">-</div>
+      
+          <!-- Añade más filas con horarios según el PDF -->
+        </div>
+      </section>
+</Layout>
