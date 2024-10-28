@@ -6,7 +6,7 @@ import ButtonAnimated from "./ButtonAnimated.astro";
 
 <section class="relative w-full overflow-hidden h-screen">
   <!-- Carrusel de escritorio con animación automática en CSS -->
-  <div id="carousel-desktop" class="carousel-desktop hidden md:flex">
+  <div id="carousel-desktop" class="carousel-desktop hidden md:flex md:w-full">
     <div class="desktop-slide">
       <img src="/carousel/1inicio.webp" alt="Imagen 1" class="w-full h-screen object-cover" />
     </div>
@@ -17,12 +17,12 @@ import ButtonAnimated from "./ButtonAnimated.astro";
       <img src="/carousel/3inicio.webp" alt="Imagen 3" class="w-full h-screen object-cover" />
     </div>
     <div class="desktop-slide">
-      <img src="/carousel/4inicio.webp" alt="Imagen 4" class="w-full h-screen object-cover" />
+      <img src="/carousel/4inicio.webp" alt="Imagen 4" class="w-full object-cover" />
     </div>
   </div>
 
   <!-- Carrusel móvil con animación automática en CSS -->
-  <div id="carousel-mobile" class="carousel-mobile flex md:hidden">
+  <div id="carousel-mobile" class="carousel-mobile flex md:hidden w-full">
     <div class="mobile-slide">
       <img src="/carousel/1iniciov.webp" alt="Imagen 1" class="w-full h-screen object-cover" />
     </div>
@@ -69,41 +69,48 @@ import ButtonAnimated from "./ButtonAnimated.astro";
 
 <style>
   /* Carrusel de escritorio: animación automática */
-  .carousel-desktop {
-    display: flex;
-    animation: slideDesktop 16s infinite;
+  @media (min-width: 768px) {
+    #carousel-mobile {
+      display: none; /* Oculta el carrusel móvil en pantallas grandes */
+    }
+    #carousel-desktop {
+      display: flex;
+      animation: slideDesktop 15s ease-in-out infinite; /* Mantener cada imagen por 3s y hacer la transición en 1s */
+    }
   }
 
-  .desktop-slide {
-    min-width: 100%;
+  @media (max-width: 767px) {
+    #carousel-desktop {
+      display: none; /* Oculta el carrusel de escritorio en pantallas pequeñas */
+    }
+    #carousel-mobile {
+      display: flex;
+      animation: slideMobile 27s ease-in-out infinite; /* Duración ajustada para 8 imágenes a 3s cada una */
+    }
   }
 
-  /* Carrusel móvil: animación automática */
-  .carousel-mobile {
-    display: flex;
-    animation: slideMobile 32s infinite;
-  }
-
+  .desktop-slide,
   .mobile-slide {
     min-width: 100%;
   }
 
   /* Animación para el carrusel de escritorio */
   @keyframes slideDesktop {
-    0%, 20% { transform: translateX(0); }
-    25%, 45% { transform: translateX(-100%); }
-    50%, 70% { transform: translateX(-200%); }
-    75%, 95% { transform: translateX(-300%); }
-    100% { transform: translateX(0); }
+    0%, 20% { transform: translateX(0); } /* 3 segundos visibles + 1s de transición */
+    26.66%, 46.66% { transform: translateX(-100%); }
+    53.33%, 73.33% { transform: translateX(-200%); }
+    80%, 100% { transform: translateX(-300%); }
   }
 
   /* Animación para el carrusel móvil */
   @keyframes slideMobile {
-    0%, 12.5% { transform: translateX(0); }
-    25%, 37.5% { transform: translateX(-100%); }
-    50%, 62.5% { transform: translateX(-200%); }
-    75%, 87.5% { transform: translateX(-300%); }
-    100% { transform: translateX(0); }
+    0%, 11.11% { transform: translateX(0); }
+    14.8%, 25.9% { transform: translateX(-100%); }
+    29.6%, 40.7% { transform: translateX(-200%); }
+    44.4%, 55.5% { transform: translateX(-300%); }
+    59.2%, 70.3% { transform: translateX(-400%); }
+    74%, 85.1% { transform: translateX(-500%); }
+    88.8%, 100% { transform: translateX(-600%); }
   }
 
   /* Animaciones del texto */
