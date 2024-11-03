@@ -4,7 +4,7 @@ interface Props {
   description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 import "../styles/global.css";
 ---
 
@@ -12,11 +12,46 @@ import "../styles/global.css";
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name=description content="Best Studio" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    
+    <!-- Datos estructurados en JSON-LD -->
+    <script type="application/ld+json">
+      {{
+        "@context": "https://schema.org",
+        "@type": "GymOrFitnessCenter",
+        "name": "Best Studio",
+        "description": "Gimnasio en Andújar especializado en crossfit, entrenamiento funcional, hyrox, pilates y otros servicios de entrenamiento.",
+        "url": "https://best-studio.netlify.app/",
+        "telephone": "+34 657 710 761",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Calle Curtidores, nave 16",
+          "addressLocality": "Andújar",
+          "addressRegion": "Jaén",
+          "postalCode": "23740",
+          "addressCountry": "ES"
+        },
+        "openingHours": [
+          "Mo-Fr 08:00-22:00",
+          "Sa 11:00-13:00"
+        ],
+        "image": "https://best-studio.netlify.app/logo-best-studio.png",
+        "priceRange": "$$",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "38.03212",
+          "longitude": "-4.05632"
+        },
+        "sameAs": [
+          "https://www.facebook.com/profile.php?id=100090105070938",
+          "https://www.instagram.com/be_st_studio/"
+        ]
+      }}
+    </script>
   </head>
   <body class="bg-black">
     <main
