@@ -1,0 +1,139 @@
+---
+// Carousel.astro
+import ButtonAnimated from "./ButtonAnimated.astro";
+
+const pcImages = [
+  '/carousel/1inicio.webp',
+  '/carousel/2inicio.webp',
+  '/carousel/3inicio.webp',
+  '/carousel/4inicio.webp',
+];
+
+const mobileImages = [
+  '/carousel/1iniciov.webp',
+  '/carousel/2iniciov.webp',
+  '/carousel/3iniciov.webp',
+  '/carousel/4iniciov.webp',
+  '/carousel/5iniciov.webp',
+  '/carousel/6iniciov.webp',
+  '/carousel/7iniciov.webp',
+  '/carousel/8iniciov.webp',
+];
+---
+<div class="relative w-full min-h-screen mx-auto" x-data="carousel()">
+    <div class="overflow-hidden w-full h-full">
+      <div class="flex transition-transform duration-500 ease-in-out" :style="`transform: translateX(-${activeSlide * 100}%)`">
+        <template x-for="(src, index) in images" :key="index">
+          <div class="w-full h-screen flex-shrink-0">
+            <img 
+              :src="src" 
+              :alt="`Slide ${index + 1}`" 
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </template>
+      </div>
+    </div>
+   
+    <div class="absolute bottom-4 left-0 right-0">
+      <div class="flex items-center justify-center gap-2">
+        <template x-for="(_, index) in images.length" :key="index">
+          <button 
+            @click="goToSlide(index)" 
+            class="w-3 h-3 rounded-full transition-colors duration-300 ease-in-out focus:outline-none"
+            :class="activeSlide === index ? 'bg-white' : 'bg-white bg-opacity-50'"
+            :aria-label="`Go to slide ${index + 1}`"
+          ></button>
+        </template>
+      </div>
+    </div>
+  </div>
+  <!-- Letras superpuestas -->
+<div class="absolute inset-0 z-30 flex flex-col justify-between h-full text-center">
+    <header class="mt-20">
+      <h2 id="main-heading" class="text-white font-bold pt-40 text-8xl xl:text-9xl animate-slide-in-bottom">
+        KING OF GYMS
+      </h2>
+      <p id="sub-heading" class="text-white text-4xl xl:text-6xl animate-fade-in-up delay-500">
+        Crece entrenando, mejora tu vida
+      </p>
+    </header>
+    <div class="flex flex-col flex-grow justify-end pb-20 xl:pb-48">
+      <div class="animate-fade-in-scale animate-delay-[4000ms]">
+        <ButtonAnimated />
+      </div>
+    </div>
+  </div>
+  
+
+<script>
+  import Alpine from 'alpinejs';
+
+  Alpine.data('carousel', () => ({
+    activeSlide: 0,
+    images: window.innerWidth < 768 ? [
+      '/carousel/1iniciov.webp',
+      '/carousel/2iniciov.webp',
+      '/carousel/3iniciov.webp',
+      '/carousel/4iniciov.webp',
+      '/carousel/5iniciov.webp',
+      '/carousel/6iniciov.webp',
+      '/carousel/7iniciov.webp',
+      '/carousel/8iniciov.webp',
+    ] : [
+      '/carousel/1inicio.webp',
+      '/carousel/2inicio.webp',
+      '/carousel/3inicio.webp',
+      '/carousel/4inicio.webp',
+    ],
+    interval: null,
+
+    init() {
+      this.startAutoSlide();
+      window.addEventListener('resize', this.handleResize.bind(this));
+    },
+
+    handleResize() {
+      this.images = window.innerWidth < 1280 ? [
+        '/carousel/1iniciov.webp',
+        '/carousel/2iniciov.webp',
+        '/carousel/3iniciov.webp',
+        '/carousel/4iniciov.webp',
+        '/carousel/5iniciov.webp',
+        '/carousel/6iniciov.webp',
+        '/carousel/7iniciov.webp',
+        '/carousel/8iniciov.webp',
+      ] : [
+        '/carousel/1inicio.webp',
+        '/carousel/2inicio.webp',
+        '/carousel/3inicio.webp',
+        '/carousel/4inicio.webp',
+      ];
+      this.activeSlide = 0;
+    },
+
+    startAutoSlide() {
+      this.interval = setInterval(() => {
+        this.nextSlide();
+      }, 3000);
+    },
+
+    stopAutoSlide() {
+      clearInterval(this.interval);
+    },
+
+    nextSlide() {
+      this.activeSlide = (this.activeSlide + 1) % this.images.length;
+    },
+
+    prevSlide() {
+      this.activeSlide = (this.activeSlide - 1 + this.images.length) % this.images.length;
+    },
+
+    goToSlide(index) {
+      this.activeSlide = index;
+    }
+  }));
+
+  Alpine.start();
+</script>
