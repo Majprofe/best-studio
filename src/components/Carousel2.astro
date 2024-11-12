@@ -137,3 +137,29 @@ const mobileImages = [
 
   Alpine.start();
 </script>
+
+<style>
+   /* Animaciones del texto */
+   @keyframes slideInBottom {
+    0% { transform: translateY(-100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes fadeInUp {
+    0% { transform: translateY(50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes fadeInScale {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .animate-slide-in-bottom { animation: slideInBottom 1.5s ease-out forwards; }
+  .animate-fade-in-up { animation: fadeInUp 2s ease-out forwards; }
+  .animate-fade-in-scale { animation: fadeInScale 2.5s ease-out forwards; }
+  .animate-delay-[500ms] { animation-delay: 500ms; }
+  .animate-delay-[4000ms] { animation-delay: 4000ms; }
+
+
+</style>

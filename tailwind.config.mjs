@@ -14,6 +14,9 @@ export default {
 		  secondary: '#FFFFFF',
 		  tertiary: '#F4F91D',
 		},
+		scrollMargin: {
+			'header': '80px', // Ajusta el valor a la altura de tu encabezado
+		},
 	  },
 	},
 	plugins: [
