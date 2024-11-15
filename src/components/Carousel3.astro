@@ -1,0 +1,175 @@
+---
+import ButtonAnimated from "./ButtonAnimated.astro";
+
+const pcImages = [
+  '/carousel/1inicio.webp',
+  '/carousel/2inicio.webp',
+  '/carousel/3inicio.webp',
+  '/carousel/4inicio.webp',
+];
+
+const mobileImages = [
+  '/carousel/1iniciov.webp',
+  '/carousel/2iniciov.webp',
+  '/carousel/3iniciov.webp',
+  '/carousel/4iniciov.webp',
+  '/carousel/5iniciov.webp',
+  '/carousel/6iniciov.webp',
+  '/carousel/7iniciov.webp',
+  '/carousel/8iniciov.webp',
+];
+---
+
+<div x-data="carousel()" class="relative w-full mx-auto overflow-hidden min-h-screen">
+  <!-- Slides -->
+  <div class="relative flex transition-transform duration-700 ease-in-out h-screen" 
+       :style="`transform: translateX(-${activeSlide * 100}%)`">
+    <template x-for="(src, index) in images" :key="index">
+      <div class="flex-shrink-0 w-full h-full relative">
+        <img 
+          :src="src" 
+          :alt="`Slide ${index + 1}`" 
+          class="w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </template>
+  </div>
+
+  <!-- Controles de Paginación -->
+  <div class="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2 z-10">
+    <template x-for="(_, index) in images.length" :key="index">
+      <button 
+        @click="goToSlide(index)" 
+        :aria-label="`Ir a la diapositiva ${index + 1}`"
+        class="w-3 h-3 rounded-full transition-all duration-300 ease-in-out focus:outline-none"
+        :class="activeSlide === index ? 'bg-white' : 'bg-white bg-opacity-50 hover:bg-opacity-100'">
+      </button>
+    </template>
+  </div>
+
+  <!-- Letras Superpuestas -->
+  <div class="absolute inset-0 z-30 flex flex-col justify-between items-center text-center p-6">
+    <header class="mt-20">
+      <h2 
+        id="main-heading" 
+        class="text-white font-bold text-6xl lg:text-8xl xl:text-9xl animate-slide-in-bottom"
+      >
+        KING OF GYMS
+      </h2>
+      <p 
+        id="sub-heading" 
+        class="text-white text-2xl lg:text-4xl xl:text-6xl animate-fade-in-up delay-500"
+      >
+        Crece entrenando, mejora tu vida
+      </p>
+    </header>
+    <div class="flex flex-col flex-grow justify-end pb-20 xl:pb-48 w-full items-center animate-fade-in-scale animate-delay-[4000ms]">
+      <ButtonAnimated />
+    </div>
+  </div>
+</div>
+
+<script>
+  import Alpine from 'alpinejs';
+
+  const pcImages = [
+    '/carousel/1inicio.webp',
+    '/carousel/2inicio.webp',
+    '/carousel/3inicio.webp',
+    '/carousel/4inicio.webp',
+  ];
+
+  const mobileImages = [
+    '/carousel/1iniciov.webp',
+    '/carousel/2iniciov.webp',
+    '/carousel/3iniciov.webp',
+    '/carousel/4iniciov.webp',
+    '/carousel/5iniciov.webp',
+    '/carousel/6iniciov.webp',
+    '/carousel/7iniciov.webp',
+    '/carousel/8iniciov.webp',
+  ];
+
+  Alpine.data('carousel', () => ({
+    activeSlide: 0,
+    interval: null,
+    images: window.innerWidth >= 1024 ? pcImages : mobileImages,
+
+    init() {
+      this.startAutoSlide();
+      window.addEventListener('resize', this.debounce(() => this.updateImages(), 200));
+    },
+
+    startAutoSlide() {
+      this.interval = setInterval(() => {
+        this.nextSlide();
+      }, 5000);
+    },
+
+    stopAutoSlide() {
+      clearInterval(this.interval);
+    },
+
+    nextSlide() {
+      this.activeSlide = (this.activeSlide + 1) % this.images.length;
+    },
+
+    prevSlide() {
+      this.activeSlide = (this.activeSlide - 1 + this.images.length) % this.images.length;
+    },
+
+    goToSlide(index) {
+      this.activeSlide = index;
+    },
+
+    updateImages() {
+      if (window.innerWidth >= 1024 && this.images !== pcImages) {
+        this.images = pcImages;
+        this.activeSlide = 0;
+      } else if (window.innerWidth < 1024 && this.images !== mobileImages) {
+        this.images = mobileImages;
+        this.activeSlide = 0;
+      }
+    },
+
+    debounce(func, wait) {
+      let timeout;
+      return (...args) => {
+        const later = () => {
+          clearTimeout(timeout);
+          func.apply(this, args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+  }));
+
+  Alpine.start();
+</script>
+
+<style>
+   /* Animaciones del texto */
+   @keyframes slideInBottom {
+    0% { transform: translateY(-100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes fadeInUp {
+    0% { transform: translateY(50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes fadeInScale {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .animate-slide-in-bottom { animation: slideInBottom 1.5s ease-out forwards; }
+  .animate-fade-in-up { animation: fadeInUp 2s ease-out forwards; }
+  .animate-fade-in-scale { animation: fadeInScale 2.5s ease-out forwards; }
+  .animate-delay-[500ms] { animation-delay: 500ms; }
+  .animate-delay-[4000ms] { animation-delay: 4000ms; }
+</style>

@@ -6,7 +6,10 @@ const paddingClass = hasPrice ? '' : 'mb-4';
 
 <div
 class="flex flex-col max-w-lg p-6 mx-auto text-center text-gray-900 bg-white border border-gray-100 rounded-lg shadow">
-<h3 class="mb-4 text-2xl font-semibold">{title}</h3>
+<h3 class="relative mb-4 text-2xl font-semibold text-gray-900 before:content-[''] before:absolute before:-inset-2 before:border-2 before:border-dashed before:border-tertiary before:rounded-lg before:-z-10 bg-gradient-to-r from-[#F4F91D] via-[#080808] to-[#c0c0c0] bg-clip-text text-transparent text-shadow">
+    {title}
+</h3>
+
 <p class={`font-light text-gray-500 ${paddingClass}`}>{description}</p>
 {price && (
     <div class="flex items-baseline justify-center my-8">
@@ -31,7 +34,39 @@ class="flex flex-col max-w-lg p-6 mx-auto text-center text-gray-900 bg-white bor
 </ul>
 <div class="mt-auto">
     <a href="https://api.whatsapp.com/send?phone=34657710761"
-    class="text-tertiary bg-black border border-transparent hover:border-tertiary hover:shadow-[0_0_10px_#F4F91D,0_0_20px_#F4F91D] hover:scale-105 transition-transform duration-200 ease-out focus:ring-4 focus:ring-purple-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-    >Date de alta</a>
-  </div>
+    class="text-white bg-gradient-to-r from-[#d4af37] via-[#F4F91D] to-[#c0c0c0] hover:bg-gradient-to-l transition-all duration-300 ease-in-out border border-transparent hover:shadow-lg font-medium rounded-lg text-sm px-5 py-2.5 text-center gradient-btn">
+     Date de alta
+    </a>
 </div>
+
+<style>
+    /* Sombra del texto para contraste */
+    .text-shadow {
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2), 0 0 5px rgba(224, 224, 224, 0.6), 0 0 10px rgba(224, 224, 224, 0.5);
+    }
+
+    /* Animación de brillo metálico (opcional) */
+    @keyframes metallic-shine {
+        0% {
+            background-position: 200% 0;
+        }
+        100% {
+            background-position: -200% 0;
+        }
+    }
+
+    /* Clase opcional para animación */
+    .hover\:metallic:hover {
+        animation: metallic-shine 4s linear infinite;
+        background-size: 300%;
+    }
+
+    /*Estilos para botones */
+    .gradient-btn {
+        background-size: 200%;
+    }
+
+    .gradient-btn:hover {
+        background-position: right;
+    }
+</style>
