@@ -70,7 +70,7 @@ import ButtonAnimated from "./ButtonAnimated.astro";
 
       <!-- Video del Entrenador -->
       <div class="relative mb-6">
-        <video controls crossorigin="anonymous" playsinline autoplay muted class="rounded-lg object-cover">
+        <video controls crossorigin="anonymous" playsinline autoplay muted class="rounded-lg object-cover aspect-video">
           <source src="./coach.webm" type="video/webm" />
         </video>
         <div class="absolute top-0 right-0 bg-black/70 text-white p-2 rounded">
@@ -147,6 +147,6 @@ import ButtonAnimated from "./ButtonAnimated.astro";
 
 /* Aspecto de video */
 .aspect-video {
-  aspect-ratio: 16 / 9; /* Ajusta el video para mantener la proporción correcta */
+  aspect-ratio: 9 / 16; /* Ajusta el video para mantener la proporción correcta */
 }
 </style>
