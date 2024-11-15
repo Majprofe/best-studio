@@ -36,7 +36,7 @@ import ButtonAnimated from "./ButtonAnimated.astro";
           <div class="text-center w-full flex items-center justify-center">
             <!-- Aplicamos una transformación de escala al video -->
             <div class="transform scale-50">
-              <video autoplay controls crossorigin="anonymous" playsinline muted class="rounded-lg shadow-lg border border-gray-700 object-contain">
+              <video id="coach-video" controls crossorigin="anonymous" playsinline muted class="rounded-lg shadow-lg border border-gray-700 object-contain">
                 <source src="./coach.webm" type="video/webm" />
               </video>
             </div>
@@ -70,7 +70,7 @@ import ButtonAnimated from "./ButtonAnimated.astro";
 
       <!-- Video del Entrenador -->
       <div class="relative mb-6">
-        <video controls crossorigin="anonymous" playsinline autoplay muted class="rounded-lg object-cover aspect-video">
+        <video id="coach-video-mobile" controls crossorigin="anonymous" playsinline muted class="rounded-lg object-cover aspect-video">
           <source src="./coach.webm" type="video/webm" />
         </video>
         <div class="absolute top-0 right-0 bg-black/70 text-white p-2 rounded">
@@ -86,6 +86,7 @@ import ButtonAnimated from "./ButtonAnimated.astro";
   if (typeof window !== "undefined") {
     document.addEventListener("DOMContentLoaded", function () {
       const observerTargets = document.querySelectorAll('.observer-target');
+      const videoElements = document.querySelectorAll('video');
 
       const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -101,6 +102,22 @@ import ButtonAnimated from "./ButtonAnimated.astro";
       observerTargets.forEach(target => {
         observer.observe(target);
       });
+
+      // Observer para videos para iniciar y pausar según visibilidad
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            (video as HTMLVideoElement).play();
+          } else {
+            (video as HTMLVideoElement).pause();
+          }
+        });
+      }, {
+        threshold: 0.5 // El 50% del video debe ser visible para activar la reproducción
+      });
+
+      videoElements.forEach(video => videoObserver.observe(video));
     });
   }
 </script>
