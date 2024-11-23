@@ -27,17 +27,24 @@ import Logo from "./Logo.astro";
             </li>
 <!-- Submenú actualizado para el elemento "SABER MÁS" -->
 <li class="hidden xl:block sm:hidden nav-item relative group">
-    <a href="#clases" class="relative overflow-hidden">SABER MÁS
+    <a href="#clases" class="relative overflow-hidden block text-center">SABER MÁS
         <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-tertiary transition-all duration-300 group-hover:left-0 group-hover:w-full"></span>
     </a>
     <div class="submenu absolute p-4 bg-black/80 backdrop-blur-md shadow-lg rounded-lg transform opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
-        <ul class="text-gray-200 text-sm text-left">
-            <li class="hover:bg-gray-700 px-4 py-2 rounded transition-colors duration-200"><a href="#clases">CLASES</a></li>
-            <li class="hover:bg-gray-700 px-4 py-2 rounded transition-colors duration-200"><a href="#tarifas">TARIFAS</a></li>
-            <li class="hover:bg-gray-700 px-4 py-2 rounded transition-colors duration-200"><a href="#horario">HORARIO</a></li>
+        <ul class="text-gray-200 text-sm text-center">
+            <li class="hover:bg-gray-700 px-4 py-2 rounded transition-colors duration-200 flex justify-center items-center">
+                <a href="#clases">CLASES</a>
+            </li>
+            <li class="hover:bg-gray-700 px-4 py-2 rounded transition-colors duration-200 flex justify-center items-center">
+                <a href="#tarifas">TARIFAS</a>
+            </li>
+            <li class="hover:bg-gray-700 px-4 py-2 rounded transition-colors duration-200 flex justify-center items-center">
+                <a href="#horario">HORARIO</a>
+            </li>
         </ul>
     </div>
 </li>
+
 
             <li class="hidden xl:block sm:hidden relative group">
                 <a href="#contact" class="relative overflow-hidden">CONTACTO
