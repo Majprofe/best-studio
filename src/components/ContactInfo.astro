@@ -22,14 +22,14 @@
           href="mailto:info@beststudio.com"
           target="_blank"
           rel="noopener noreferrer"
-          class="block text-lg mb-2 text-gray-300 hover:text-tertiary transition-colors"
+          class="block text-lg mb-2 text-gray-300 hover:text-gray-100 transition-colors"
           >info@beststudio.com</a
         >
         <a
           href="tel:+34657710761"
           target="_blank"
           rel="noopener noreferrer"
-          class="block text-lg text-gray-300 hover:text-tertiary transition-colors"
+          class="block text-lg text-gray-300 hover:text-gray-100 transition-colors"
           >657 71 07 61</a
         >
         <a
@@ -41,7 +41,7 @@
           <img
             src="/whatsappIcon.svg"
             alt="WhatsApp Icon"
-            class="inline-block w-12 h-12 object-contain bg-transparent"
+            class="inline-block w-12 h-12 object-contain bg-transparent hover:opacity-80 transition-opacity"
           />
         </a>
       </div>
@@ -57,7 +57,7 @@
           href="https://maps.app.goo.gl/N1u3ckTseNmeT1KP8"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-white flex justify-center items-center mt-4 hover:text-white transition-colors"
+          class="text-white flex justify-center items-center mt-4 hover:text-gray-100 transition-colors"
         >
           <img src="/location.svg" alt="Location Icon" class="h-6 w-auto pr-2" /> VER
           MAPA
@@ -78,63 +78,54 @@
   </div>
 </section>
 
-
 <style>
-/* Estilos de la tarjeta sin borde visible, pero con borde animado y partido */
+/* Contenedor principal */
 .card {
-  position: relative;
-  width: 300px;
-  height: 250px;
-  background-color: transparent; /* Fondo transparente para el borde animado */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.content {
-  color: white;
-  text-align: center;
-  background-color: #151515;
-  border-radius: 15px; /* Mantén el borde redondeado para el contenido */
+  background-color: #1a1a1a; /* Fondo oscuro */
+  border-radius: 15px; /* Bordes redondeados */
   padding: 20px;
-  width: 99%;
-  height: 99%;
-  position: relative;
-  z-index: 1; /* Asegura que el contenido esté sobre el borde animado */
+  width: 300px; /* Tamaño fijo */
+  height: 250px; /* Tamaño fijo */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Pseudo-elemento para crear el borde animado partido */
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, #F4F91D 50%, #a7b621 50%);
-  background-size: 200% 200%;
-  border-radius: 15px; /* Borde animado con radio */
-  z-index: 0;
-  animation: smoothRotate 16s linear infinite;
-}
-
-/* Animación de rotación suave del borde animado */
-@keyframes smoothRotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Efecto hover de la tarjeta */
+/* Sombra y escalado en hover */
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(244, 249, 29, 0.7); /* Sombra ligera en hover */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1); /* Sombra suave */
 }
 
+/* Título */
+.content h2, .content h3 {
+  color: #ffffff;
+}
 
+/* Texto del contenido */
+.content p, .content a {
+  color: #c0c0c0;
+}
 
+/* Efecto hover para enlaces */
+.content a:hover {
+  color: #ffffff; /* Blanco en hover */
+  text-decoration: underline; /* Subrayado en hover */
+}
+
+/* Icono de WhatsApp */
+.content img {
+  transition: opacity 0.3s ease;
+}
+
+.content img:hover {
+  opacity: 0.8; /* Efecto en hover */
+}
+
+/* Uniformidad en flexbox */
+.text-white .card {
+  flex: 1 1 auto; /* Asegura uniformidad en tamaños */
+}
 </style>

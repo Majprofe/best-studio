@@ -1,0 +1,196 @@
+---
+import ButtonReserva from "./ButtonReserva.astro";
+---
+
+<section id="tarifas" class="bg-black text-white py-16 px-4">
+  <div class="max-w-screen-xl mx-auto lg:py-24 lg:px-6">
+    <div class="max-w-screen-md mx-auto mb-8 text-center lg:mb-12">
+      <!-- Título -->
+      <h2
+        style="opacity: 0;"
+        class="mb-8 text-5xl font-extrabold tracking-tight text-gray-200 animate-on-scroll"
+        data-animation="fade-in-left"
+        data-animation-delay="0.5s"
+      >
+        TARIFAS
+      </h2>
+
+      <!-- Texto descriptivo con animaciones diferenciadas -->
+      <div class="relative">
+        <p
+          style="opacity: 0;"
+          class="text-3xl animate-on-scroll mb-4"
+          data-animation="fade-in-left"
+          data-animation-delay="1s"
+        >
+          Podríamos poner aquí nuestras tarifas.
+        </p>
+        <p
+          style="opacity: 0;"
+          class="text-3xl animate-on-scroll mb-4"
+          data-animation="fade-in-right"
+          data-animation-delay="1.5s"
+        >
+          ¿Pero cómo valorarías el servicio si no has estado con nosotros?
+        </p>
+        <p
+          style="opacity: 0;"
+          class="text-3xl animate-on-scroll mb-8"
+          data-animation="fade-in-up"
+          data-animation-delay="2s"
+        >
+          Escríbenos y prueba una sesión sin compromiso.
+        </p>
+        <p
+          style="opacity: 0;"
+          class="text-3xl animate-on-scroll mb-12"
+          data-animation="fade-in-down"
+          data-animation-delay="2.5s"
+        >
+          Te asesoraremos y propondremos la tarifa que se adapta a tus objetivos y necesidades.
+        </p>
+      </div>
+
+      <!-- Botón -->
+      <div
+        style="opacity: 0;"
+        class="flex justify-center animate-on-scroll"
+        data-animation="fade-in-button"
+        data-animation-delay="3s"
+      >
+        <ButtonReserva />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Animaciones base */
+@keyframes fade-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-button {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Clase genérica para activar animaciones */
+.animate-on-scroll-visible {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+/* Asegurar que los elementos comiencen ocultos */
+.animate-on-scroll {
+  opacity: 0;
+}
+
+/* Botón personalizado */
+.button {
+  position: relative;
+  background: rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  border: 1px solid;
+  border-radius: 25px;
+  color: white;
+  padding: 10px 48px;
+  font-size: 18px;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  animation: floating 3s ease-in-out infinite;
+  transition: color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  border-color: #fde047;
+}
+
+.button:hover {
+  color: #e1c539;
+  box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+  background-position: right center;
+  background: linear-gradient(to right, #e1c539, #fde047);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const observerOptions = {
+      threshold: 0.2, // 20% del elemento visible para activar
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        const target = entry.target;
+
+        // Asegúrate de que el target es un elemento HTML antes de aplicar estilos
+        if (entry.isIntersecting && target instanceof HTMLElement) {
+          // Obtener la animación y el retardo desde los atributos
+          const animation = target.getAttribute("data-animation");
+          const delay = target.getAttribute("data-animation-delay") || "0s";
+
+          // Aplicar la animación y el retardo
+          target.style.animationName = animation;
+          target.style.animationDelay = delay;
+          target.classList.add("animate-on-scroll-visible");
+
+          // Dejar de observar el elemento una vez que se haya animado
+          observer.unobserve(target);
+        }
+      });
+    }, observerOptions);
+
+    // Seleccionar los elementos con la clase "animate-on-scroll"
+    const scrollElements = document.querySelectorAll(".animate-on-scroll");
+
+    scrollElements.forEach((el) => observer.observe(el));
+  });
+</script>
