@@ -7,8 +7,8 @@ import ButtonAnimated from "./ButtonAnimated.astro";
   <div class="absolute inset-0 bg-black opacity-20 z-0"></div>
 
   <div class="container mx-auto relative z-10 py-4">
-    <!-- Contenedor principal -->
-    <div class="flex flex-col xl:flex-row xl:justify-center xl:items-center space-y-6 xl:space-y-0 xl:space-x-6">
+    <!-- Contenedor versión escritorio -->
+    <div class="flex flex-col hidden xl:block xl:flex-row xl:justify-center xl:items-center space-y-6 xl:space-y-0 xl:space-x-6">
       <!-- Contenedor del Texto y Botón Juntos con Animación -->
       <div class="w-full xl:w-1/2 flex flex-col items-center xl:items-start justify-center mb-6 observer-target">
         <div class="bg-black/40 p-8 rounded-lg text-left w-full">
@@ -45,9 +45,9 @@ import ButtonAnimated from "./ButtonAnimated.astro";
     </div>
 
     <!-- Sección para Móviles -->
-    <div class="flex flex-col xl:hidden items-center space-y-6 mt-10 observer-target">
+    <div class="flex flex-col xl:hidden items-center space-y-6 mt-10">
       <!-- Texto y Botón Juntos con Animación -->
-      <div class="w-full text-center mb-6 px-4">
+      <div class="w-full text-center mb-6 px-4 observer-target">
         <div class="bg-black/40 p-6 rounded-lg">
           <h2 class="text-4xl text-center font-bold mb-6 text-white text-shadow-lg">
             ¿Es Best Studio un centro para ti?
@@ -165,4 +165,15 @@ import ButtonAnimated from "./ButtonAnimated.astro";
 .aspect-video {
   aspect-ratio: 9 / 16; /* Ajusta el video para mantener la proporción correcta */
 }
+
+video::cue {
+  font-size: 1rem; /* Tamaño base */
+}
+
+@media (min-width: 600px) {
+  video::cue {
+    font-size: 0.8rem; /* Reduce el tamaño en pantallas grandes */
+  }
+}
+
 </style>
