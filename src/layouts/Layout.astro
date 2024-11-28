@@ -9,14 +9,20 @@ import "../styles/global.css";
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Best Studio" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://best-studio.netlify.app/" />
+    <meta property="og:image" content="https://best-studio.netlify.app/logo-best-studio.png" />
     
     <!-- Datos estructurados en JSON-LD -->
     <script type="application/ld+json">
@@ -55,7 +61,7 @@ import "../styles/global.css";
   </head>
   <body class="bg-black">
     <main
-      class="scroll-smooth w-full"
+      class="w-full"
     >
       <slot />
     </main>
