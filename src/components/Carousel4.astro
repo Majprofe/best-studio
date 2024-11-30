@@ -1,35 +1,31 @@
 ---
 import ButtonAnimated from "./ButtonAnimated.astro";
-
 ---
 
 <!-- Carousel Component -->
 <div x-data="carousel()" class="relative w-full mx-auto overflow-hidden min-h-screen">
-  <!-- Slides Container with Touch Events -->
+  <!-- Slides Container -->
   <div
     class="relative flex transition-transform duration-700 ease-in-out h-screen"
     :style="`transform: translateX(-${activeSlide * 100}%)`"
-    @pointerdown="handlePointerDown($event)"
-    @pointermove="handlePointerMove($event)"
-    @pointerup="handlePointerUp($event)"
   >
     <!-- Slides -->
-    <template x-for="(src, index) in images" :key="index">
+    <template x-for="(image, index) in images" :key="index">
       <div class="flex-shrink-0 w-full h-full relative">
         <img 
-          :src="src" 
-          :alt="`Slide ${index + 1}`" 
+          :src="image.src" 
+          :alt="image.alt" 
           class="w-full h-full object-cover"
           :loading="index === 0 ? 'eager' : 'lazy'"
           decoding="async"
-          :srcset="generateSrcSet(src)"
+          :srcset="generateSrcSet(image.src)"
           sizes="(max-width: 719px) 100vw, 100vw"
         />   
       </div>
     </template>
   </div>
 
-  <!-- Controles de Paginación -->
+  <!-- Pagination Controls -->
   <div class="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2 z-10">
     <template x-for="(_, index) in images.length" :key="index">
       <button 
@@ -41,7 +37,7 @@ import ButtonAnimated from "./ButtonAnimated.astro";
     </template>
   </div>
 
-  <!-- Letras Superpuestas -->
+  <!-- Overlay Text -->
   <div class="absolute inset-0 z-30 flex flex-col justify-between items-center text-center p-6">
     <header class="mt-20">
       <h2 
@@ -67,120 +63,87 @@ import ButtonAnimated from "./ButtonAnimated.astro";
   import Alpine from 'alpinejs';
 
   const pcImages = [
-    '/carousel/1inicio.webp',
-    '/carousel/2inicio.webp',
-    '/carousel/3inicio.webp',
-    '/carousel/4inicio.webp',
-    '/carousel/5inicio.webp',
+    { src: '/carousel/1inicio.webp', alt: 'Descripción de la imagen 1' },
+    { src: '/carousel/2inicio.webp', alt: 'Descripción de la imagen 2' },
+    { src: '/carousel/3inicio.webp', alt: 'Descripción de la imagen 3' },
+    { src: '/carousel/4inicio.webp', alt: 'Descripción de la imagen 4' },
+    { src: '/carousel/5inicio.webp', alt: 'Descripción de la imagen 5' },
   ];
 
   const mobileImages = [
-    '/carousel/1iniciov.webp',
-    '/carousel/2iniciov.webp',
-    '/carousel/3iniciov.webp',
-    '/carousel/4iniciov.webp',
-    '/carousel/5iniciov.webp',
-    '/carousel/6iniciov.webp',
-    '/carousel/7iniciov.webp',
-    '/carousel/8iniciov.webp',
+    { src: '/carousel/1iniciov.webp', alt: 'Descripción de la imagen 1' },
+    { src: '/carousel/2iniciov.webp', alt: 'Descripción de la imagen 2' },
+    { src: '/carousel/3iniciov.webp', alt: 'Descripción de la imagen 3' },
+    { src: '/carousel/4iniciov.webp', alt: 'Descripción de la imagen 4' },
+    { src: '/carousel/5iniciov.webp', alt: 'Descripción de la imagen 5' },
+    { src: '/carousel/6iniciov.webp', alt: 'Descripción de la imagen 6' },
+    { src: '/carousel/7iniciov.webp', alt: 'Descripción de la imagen 7' },
+    { src: '/carousel/8iniciov.webp', alt: 'Descripción de la imagen 8' },
   ];
 
   Alpine.data('carousel', function() {
-  return {
-    activeSlide: 0,
-    interval: null,
-    images: window.innerWidth >= 720 ? pcImages : mobileImages,
-    lastWindowWidth: window.innerWidth,
-    touchStartX: 0,
-    touchEndX: 0,
-    isDragging: false,
+    return {
+      activeSlide: 0,
+      interval: null,
+      images: window.innerWidth >= 720 ? pcImages : mobileImages,
+      lastWindowWidth: window.innerWidth,
 
-    init() {
-      this.startAutoSlide();
-      window.addEventListener('resize', this.debounce(() => this.updateImages(), 200));
-    },
+      init() {
+        this.startAutoSlide();
+        window.addEventListener('resize', this.debounce(() => this.updateImages(), 200));
+      },
 
-    startAutoSlide() {
-      this.interval = setInterval(() => {
-        this.nextSlide();
-      }, 5000);
-    },
+      startAutoSlide() {
+        this.interval = setInterval(() => {
+          this.nextSlide();
+        }, 5000);
+      },
 
-    stopAutoSlide() {
-      clearInterval(this.interval);
-    },
+      stopAutoSlide() {
+        clearInterval(this.interval);
+      },
 
-    nextSlide() {
-      this.activeSlide = (this.activeSlide + 1) % this.images.length;
-    },
+      nextSlide() {
+        this.activeSlide = (this.activeSlide + 1) % this.images.length;
+      },
 
-    prevSlide() {
-      this.activeSlide = (this.activeSlide - 1 + this.images.length) % this.images.length;
-    },
+      prevSlide() {
+        this.activeSlide = (this.activeSlide - 1 + this.images.length) % this.images.length;
+      },
 
-    goToSlide(index) {
-      this.activeSlide = index;
-    },
+      goToSlide(index) {
+        this.activeSlide = index;
+      },
 
-    updateImages() {
-      const windowWidth = window.innerWidth;
-      const crossedBreakpoint = (this.lastWindowWidth < 720 && windowWidth >= 720) || (this.lastWindowWidth >= 720 && windowWidth < 720);
+      updateImages() {
+        const windowWidth = window.innerWidth;
+        const crossedBreakpoint = (this.lastWindowWidth < 720 && windowWidth >= 720) || (this.lastWindowWidth >= 720 && windowWidth < 720);
 
-      if (crossedBreakpoint) {
-        this.images = windowWidth >= 720 ? pcImages : mobileImages;
-        this.activeSlide = 0;
-      }
+        if (crossedBreakpoint) {
+          this.images = windowWidth >= 720 ? pcImages : mobileImages;
+          this.activeSlide = 0;
+        }
 
-      this.lastWindowWidth = windowWidth;
-    },
+        this.lastWindowWidth = windowWidth;
+      },
 
-    generateSrcSet(src) {
-      return `${src} 1x, ${src.replace('.webp', '@2x.webp')} 2x`;
-    },
+      generateSrcSet(src) {
+        return `${src} 1x, ${src.replace('.webp', '@2x.webp')} 2x`;
+      },
 
-    // Touch Events
-   // Pointer Events
-   handlePointerDown(event) {
-      event.preventDefault();
-      this.stopAutoSlide();
-      this.touchStartX = event.clientX;
-      this.isDragging = true;
-    },
-
-    handlePointerMove(event) {
-      if (!this.isDragging) return;
-      this.touchEndX = event.clientX;
-    },
-
-    handlePointerUp() {
-      if (!this.isDragging) return;
-      if (this.touchStartX - this.touchEndX > 50) {
-        this.nextSlide();
-      } else if (this.touchEndX - this.touchStartX > 50) {
-        this.prevSlide();
-      }
-      this.startAutoSlide();
-      this.touchStartX = 0;
-      this.touchEndX = 0;
-      this.isDragging = false;
-    },
-
-    debounce(func, wait) {
-      let timeout;
-      return (...args) => {
-        const later = () => {
+      debounce(func, wait) {
+        let timeout;
+        return (...args) => {
+          const later = () => {
+            clearTimeout(timeout);
+            func.apply(this, args);
+          };
           clearTimeout(timeout);
-          func.apply(this, args);
+          timeout = setTimeout(later, wait);
         };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-      };
-    }
-  };
+      },
+    };
   });
-
-  // srcset generator
-
 
   Alpine.start();
 </script>
@@ -207,7 +170,4 @@ import ButtonAnimated from "./ButtonAnimated.astro";
   .animate-fade-in-scale { animation: fadeInScale 2.5s ease-out forwards; }
   .animate-delay-[500ms] { animation-delay: 500ms; }
   .animate-delay-[4000ms] { animation-delay: 4000ms; }
-  .carousel-container {
-  touch-action: pan-y;
-}
 </style>
