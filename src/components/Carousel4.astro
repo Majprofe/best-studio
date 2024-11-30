@@ -22,7 +22,9 @@ import ButtonAnimated from "./ButtonAnimated.astro";
           class="w-full h-full object-cover"
           :loading="index === 0 ? 'eager' : 'lazy'"
           decoding="async"
-        />
+          :srcset="generateSrcSet(src)"
+          sizes="(max-width: 719px) 100vw, 100vw"
+        />   
       </div>
     </template>
   </div>
