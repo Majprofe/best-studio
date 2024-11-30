@@ -3,21 +3,25 @@ import ButtonAnimated from "./ButtonAnimated.astro";
 
 ---
 
+<!-- Carousel Component -->
 <div x-data="carousel()" class="relative w-full mx-auto overflow-hidden min-h-screen">
-  <!-- Slides -->
-  <div class="relative flex transition-transform duration-700 ease-in-out h-screen" 
-       :style="`transform: translateX(-${activeSlide * 100}%)`">
+  <!-- Slides Container with Touch Events -->
+  <div
+    class="relative flex transition-transform duration-700 ease-in-out h-screen"
+    :style="`transform: translateX(-${activeSlide * 100}%)`"
+    @touchstart="handleTouchStart($event)"
+    @touchmove="handleTouchMove($event)"
+    @touchend="handleTouchEnd()"
+  >
+    <!-- Slides -->
     <template x-for="(src, index) in images" :key="index">
       <div class="flex-shrink-0 w-full h-full relative">
         <img 
-          :src="src"
-          :alt="`Slide ${index + 1}`"
+          :src="src" 
+          :alt="`Slide ${index + 1}`" 
           class="w-full h-full object-cover"
-          loading="lazy"
-          decoding="async"
-          :srcset="generateSrcSet(src)"
-          sizes="(max-width: 1023px) 100vw, 100vw"
           :loading="index === 0 ? 'eager' : 'lazy'"
+          decoding="async"
         />
       </div>
     </template>
@@ -84,6 +88,8 @@ import ButtonAnimated from "./ButtonAnimated.astro";
     interval: null,
     images: window.innerWidth >= 720 ? pcImages : mobileImages,
     lastWindowWidth: window.innerWidth,
+    touchStartX: 0,
+    touchEndX: 0,
     
 
 
@@ -128,6 +134,29 @@ import ButtonAnimated from "./ButtonAnimated.astro";
 
     generateSrcSet(src) {
       return `${src} 1x, ${src.replace('.webp', '@2x.webp')} 2x`;
+    },
+
+    // Touch Events
+    handleTouchStart(event) {
+      this.stopAutoSlide(); // Stop auto-sliding when user interacts
+      this.touchStartX = event.touches[0].clientX;
+    },
+
+    handleTouchMove(event) {
+      this.touchEndX = event.touches[0].clientX;
+    },
+
+    handleTouchEnd() {
+      if (this.touchStartX - this.touchEndX > 50) {
+        // Swipe left
+        this.nextSlide();
+      } else if (this.touchEndX - this.touchStartX > 50) {
+        // Swipe right
+        this.prevSlide();
+      }
+      this.startAutoSlide(); // Restart auto-sliding
+      this.touchStartX = 0;
+      this.touchEndX = 0;
     },
 
     debounce(func, wait) {
